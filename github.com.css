@@ -1,4 +1,4 @@
-/*! Github Dark Theme v1.14.0 (7/3/2015) *//*
+/*! Github Dark Theme v1.14.4 (7/20/2015) *//*
  * https://github.com/StylishThemes/GitHub-Dark
  * http://userstyles.org/styles/37035
  * License: https://creativecommons.org/licenses/by-sa/4.0/
@@ -17,7 +17,7 @@ background-position: left top !important;
   /* custom code font */
   pre, code, tt, kbd:not(.badmono), pre, samp, .blob-code, .file-data pre, .line-data, #gist-form .file .input textarea,
   .ace_editor.ace-github-light, .ace_editor {
-      font-family: "Menlo", Monaco, Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
+      font-family: "/*[[font-choice]]*/", Monaco, Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
   }
   /* Base link/panel colors - text */
   a:not([href*="/labels/"]), .profilecols ul.stats li a:hover strong, .plans-row .plan, .filters li.selected, .vcard-stat,
@@ -57,7 +57,7 @@ background-position: left top !important;
   .team-grid .team-name:hover, a.tabnav-extra:hover, .tabnav .tabnav-extras:hover,
   .application-authorizations .oauth-app-owner:hover, .expand-more, .participation a:hover,
   .commit .commit-title .issue-link {
-    color: #4183C4 !important;
+    color: /*[[base-color]]*/ #4183C4 !important;
   }
   /* Base color panel */
   .btn:active, option:hover, .listings-layout .nav li a:hover, .state-merged,
@@ -70,38 +70,38 @@ background-position: left top !important;
   .pagination .current, .owner-select-target:hover, .btn.btn-outline:hover, .filter-item.selected,
   .release-timeline-tags .expander-text:hover .expander-dots, a.gollum-minibutton:hover, a.gollum-minibutton:visited:hover,
   .search-result-item.navigation-focus {
-    background: #4183C4 !important;
+    background: /*[[base-color]]*/ #4183C4 !important;
   }
   .context-button:after {
-    border-color: #4183C4 transparent transparent !important;
+    border-color: /*[[base-color]]*/ #4183C4 transparent transparent !important;
   }
   .octofication .message, .panel-nav:not(.disabled):active, .diagram-icon:not(.active), .full-commit .btn.btn-outline:hover,
   .btn.btn-outline:hover, .btn.btn-outline.zeroclipboard-is-hover, :checked + .radio-label {
-    border-color: #4183C4 !important;
+    border-color: /*[[base-color]]*/ #4183C4 !important;
   }
   .header-nav-link:hover .dropdown-caret, .header-nav-link:focus .dropdown-caret {
-    border-top-color: #4183C4 !important;
+    border-top-color: /*[[base-color]]*/ #4183C4 !important;
   }
   .table-list .table-list-item.unread .table-list-cell-checkbox {
-    border-left-color: #4183C4 !important;
-    box-shadow: 2px 0px 0px #4183C4 inset !important;
+    border-left-color: /*[[base-color]]*/ #4183C4 !important;
+    box-shadow: 2px 0px 0px /*[[base-color]]*/ #4183C4 inset !important;
   }
   /* === Notification icon === */
   .notification-indicator .mail-status {
-    background-color: #4183C4 !important;
+    background-color: /*[[base-color]]*/ #4183C4 !important;
     border-color: #1d1d1d !important;
   }
   /* text selection */
   ::selection {
-    background-color: #4183C4 !important;
+    background-color: /*[[base-color]]*/ #4183C4 !important;
     color: #fff !important;
   }
   ::-moz-selection {
-    background-color: #4183C4 !important;
+    background-color: /*[[base-color]]*/ #4183C4 !important;
     color: #fff !important;
   }
   .ace_selection {
-    background-color: #4183C4 !important;
+    background-color: /*[[base-color]]*/ #4183C4 !important;
     color: #fff !important;
   }
   /* placeholder */
@@ -119,8 +119,8 @@ background-position: left top !important;
   input[type="password"]:focus, input.focus[type="email"], input[type="email"]:focus, input.focus[type="number"],
   input[type="number"]:focus, input.focus[type="tel"], input[type="tel"]:focus, input.focus[type="url"],
   input[type="url"]:focus, textarea.focus, textarea:focus, #q:focus ~ button, input.color-editor-input:focus {
-    border-color: #4183C4 !important;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.075), 0 0 2px #4183C4 !important;
+    border-color: /*[[base-color]]*/ #4183C4 !important;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.075), 0 0 2px /*[[base-color]]*/ #4183C4 !important;
   }
   /* === Inputs === */
   select, input:not(.js-color-editor-input), textarea {
@@ -174,14 +174,17 @@ background-position: left top !important;
   }
   pre, .highlight, .diff-table, .tab-size-1, .tab-size-2, .tab-size-3, .tab-size-4, .tab-size-5,
   .tab-size-6, .tab-size-7, .tab-size-8, .tab-size-9, .tab-size-10, .tab-size-11, .tab-size-12 {
-         tab-size: 4 !important;
-    -moz-tab-size: 4 !important;
+         tab-size: /*[[tab-size]]*/ 2 !important;
+    -moz-tab-size: /*[[tab-size]]*/ 2 !important;
   }
 
   .repository-sidebar, .blog-aside, .gist-sidebar {
     position: sticky !important;
     top: 8px !important;
-    z-index: 1 !important;
+  }
+  /* HACK: Fix z-index of sidebar (.discussion-sidebar is at z = 21) */
+  .repository-sidebar {
+    z-index: 32 !important;
   }
   .sunken-menu-item.is-loading .octicon {
     opacity: 0 !important;
@@ -352,7 +355,7 @@ background-position: left top !important;
   /* ace find highlight */
   .ace_editor .ace_marker-layer .ace_selected-word {
     background: transparent !important;
-    border: 1px solid #4183C4 !important;
+    border: 1px solid /*[[base-color]]*/ #4183C4 !important;
   }
   /* dropdown arrows are css triangles, so we can't just apply color to all four borders */
   .dropdown-arrow {
@@ -360,7 +363,7 @@ background-position: left top !important;
     transition: none !important;
   }
   .js-menu-target:hover .dropdown-arrow {
-    border-top-color: #4183C4 !important;
+    border-top-color: /*[[base-color]]*/ #4183C4 !important;
   }
   /* GitHub Bug: The focused + in the header has an ugly underline from a:active */
   .js-menu-target:focus, .js-menu-target:active {
@@ -443,7 +446,7 @@ background-position: left top !important;
   .select-menu-text-filter:first-child:last-child, .select-menu-modal, #gist-form .file .meta, .file .meta,
   .file-box .meta, .capped-card, .audit-results-header, .pagination a, .pagination span, .pagination em,
   .input_area, .output_area .rendered_html table, .render-info .message, .dashboard-notice, .radio-label,
-  .subnav .btn + .issues-search {
+  .subnav .btn + .issues-search, .branch-action-next .branch-action-item + .branch-action-item {
     border-color: #343434 !important;
   }
   .discussion-item-icon, .date:after, .render-shell img, img.asset, ul.color-label-list .color {
@@ -549,7 +552,7 @@ background-position: left top !important;
   #gollum-editor-help-list li a:hover, .github-access-banner, .protip-callout, ul.comparison-list, .wiki-custom-sidebar,
   .invitation-container, .orgs-help-shelf, .orgs-help-item-octicon, .form-control, input[type="text"]:not(.tree-finder-input),
   input[type="password"], input[type="email"], input[type="number"], input[type="tel"], input[type="url"], textarea, .two-factor-help,
-  .dropdown-menu, .thread-subscription-status {
+  .dropdown-menu, .thread-subscription-status, .branch-action-next .merge-message, .branch-action-next .merge-branch-form {
     background: #181818 !important;
     border-color: #343434 !important;
   }
@@ -579,7 +582,7 @@ background-position: left top !important;
   .file-history-tease .participation {
     background: #181818 !important;
   }
-  .markdown-body table tr {
+  .markdown-body table tr, .blob-num-context {
     background: #141414 !important;
   }
   .blame .blob-num, .blame-blob-num, .overall-summary, .repository-lang-stats, .collection-card, .team-grid .team,
@@ -612,7 +615,7 @@ background-position: left top !important;
   .repository-sidebar a.js-selected-navigation-item.selected, .discussion-bubble-inner,  #wiki-history table td,
   .menu a.selected, .gist .gist-file .gist-data, #message.major, .logo-box,
   .markdown-example .rendered, .team-grid .team-members, .diagram-icon:not(.active), table.capped-list th, .scope-badge, .filter-bar,
-  .audit-search-clear, .country-info, .tabnav-tab.selected, .file-diff-split .empty-cell, .composer-infobar {
+  .audit-search-clear, .country-info, .tabnav-tab.selected, .file-diff-split .empty-cell, .composer-infobar, .completeness-indicator-blank {
     background: #222 !important;
   }
   hr, .rule, #browser, .repos, .options-group, .pagehead ul.tabs li a.selected, .subnav-bar, .options-content, span.gravatar, .browsered,
@@ -671,7 +674,7 @@ background-position: left top !important;
   .pagehead ul.tabs li a:hover, .repos .bottom-bar, #languages .popular, .tip-box h4, table.upgrades td,
   .commit-preview .message, .commit-preview p.error, .pagehead ul.tabs li.contextswitch, #browser tr th, .status-box h4,
   .line_numbers, #files span.icon, #issues_list .actions, #repos .public, .inset-callout, #repo-message,
-  .summary-stats li a:hover, .repo-private-label, .label-admin, a.team-member-ellipsis {
+  .summary-stats li a:hover, .repo-private-label, .label-admin, a.team-member-ellipsis, .code-list em, .user-list em {
     background: #333 !important;
   }
   .comment-form, #issues .labels, #gollum-editor select, .listings .odd, .feed, #files .description,
@@ -696,8 +699,8 @@ background-position: left top !important;
   .heat1, .heat2, .heat3, .heat4, .heat5, .heat6, .heat7, .heat8, .heat9, .heat10, .contrib-legend li,
   #contributions-calendar rect[fill="#d6e685"], #contributions-calendar rect[fill="#8cc665"],
   #contributions-calendar rect[fill="#44a340"], #contributions-calendar rect[fill="#1e6823"] {
-    background-color: #4183C4 !important;
-    fill: #4183C4 !important;
+    background-color: /*[[base-color]]*/ #5af !important;
+    fill: /*[[base-color]]*/ #5af !important;
   }
   #contributions-calendar rect[fill="#eeeeee"], .contrib-legend li[style*="#eee"] {
     background-color: #282828 !important;
@@ -790,10 +793,10 @@ background-position: left top !important;
     fill: #444 !important;
   }
   .features-branch-diagram path[stroke="#c6d9ed"], .features-branch-diagram path[stroke="#4182C4"] {
-    stroke: #4183C4 !important;
+    stroke: /*[[base-color]]*/ #4183C4 !important;
   }
   .features-branch-diagram circle[fill="#4183c4"] {
-    fill:  #4183C4 !important;
+    fill:  /*[[base-color]]*/ #4183C4 !important;
   }
   .features-branch-diagram circle[stroke="#ffffff"] {
     stroke: #222 !important;
@@ -808,6 +811,10 @@ background-position: left top !important;
   circle.audit-point {
     fill: #742d14 !important;
     stroke: #57210f !important;
+  }
+  .graphs .selection rect {
+    fill: #888 !important;
+    stroke: #888 !important;
   }
   ul.sidetabs li a:hover, .editbox h1, #issues .labels .admin, #issues .display .sortbar, #facebox .close, #issues_search .wrapper,
   .ranked-repositories .meta a, .actor, ul.nav.logged_out, .tip-box a.next, #inbox .list .unread, .main .filterbar,
@@ -1038,7 +1045,8 @@ background-position: left top !important;
   div.search-form button span, .fullscreen-overlay .octicon:hover:before, .fullscreen-overlay .mega-octicon:hover:before,
   .protip-callout, .fullscreen-overlay textarea:focus, .fullscreen-overlay textarea:hover,
   #header ul.top-nav > li > a, #header ul.top-nav > li > button, a.octotree_toggle, a.team-member-ellipsis:hover,
-  .rendered_html pre, .rendered_html code, .team-grid .team-name, .commit .commit-title, .commit .commit-title a {
+  .rendered_html pre, .rendered_html code, .team-grid .team-name, .commit .commit-title, .commit .commit-title a,
+  .completeness-indicator-success, .completeness-indicator-error, .completeness-indicator-problem {
     color: #c0c0c0 !important;
   }
   h5, h6, .edit-repository-meta, .field label, .boxed-group-list li, .capped-box, .marketing-nav a,
@@ -1099,7 +1107,7 @@ background-position: left top !important;
   .releases-tag-list p a, .history-link a, a.issue-nwo-link, ul.filter-list .filter-item,
   .member-meta .teams-link, .member-meta .btn-link, a.stats-group-stat, ul.comparison-list > li em, ul.comparison-list > li.title,
   .diffstat-summary, a.team-member-ellipsis, a.discussion-item-toggle-open, a.discussion-item-toggle-closed, .dropdown-header,
-  .participation a {
+  .participation a, .completeness-indicator-info {
     color: #808080 !important;
   }
   .vcard-detail .octicon, .member-badge .octicon, .command-bar .octicon-question:before, .auto-search-group .octicon:before, .news .alert .time,
@@ -1137,8 +1145,9 @@ background-position: left top !important;
     color: #222 !important;
   }
   .timeline-comment-header .timestamp, .vcard-stat:hover .text-muted, .boxed-group > h3 a,
-  .boxed-group .heading a, .select-menu-item, a.select-menu-item, .list-heading a, .close-button, .timeline-comment-action, a.timeline-comment-action,
-  a.comment-type-icon, .timeline-comment-actions .octicon, .commit-title .commit-link tt {
+  .boxed-group .heading a, .select-menu-item, a.select-menu-item, .list-heading a, .close-button, .timeline-comment-action,
+  a.timeline-comment-action, a.comment-type-icon, .timeline-comment-actions .octicon, .commit-title .commit-link tt,
+  .btn-block-user {
     color: inherit !important;
   }
   /* Alerts and activity, remove background gradient */
@@ -1149,8 +1158,8 @@ background-position: left top !important;
   /* Panels */
   #posts #rss, .signup-button, .hero h1, .plan.personal, .caption, .centered-graphic,
   .login_form h1 {
-    background-color: #4183C4 !important;
-    border-color: #4183C4 !important;
+    background-color: /*[[base-color]]*/ #4183C4 !important;
+    border-color: /*[[base-color]]*/ #4183C4 !important;
   }
   /* === red === */
   /* Red panel */
@@ -1166,8 +1175,8 @@ background-position: left top !important;
     background: #a31e16 !important;
     border: #b00 1px solid !important;
   }
-  .mergeable-dirty .bubble, .mergeable-dirty .merge-status-icon {
-    background: #a31e16 !important;
+  .mergeable-dirty .bubble, .mergeable-dirty .merge-status-icon, .completeness-indicator-error {
+    background: #c31e16 !important;
   }
   /* red border */
   .mergeable-dirty .bubble .mergeable, #message.major {
@@ -1249,6 +1258,9 @@ background-position: left top !important;
   }
   .mergeable-clean .bubble:after, .branch-action-state-clean .branch-action-body:before {
     border-right-color: #207038 !important;
+  }
+  .completeness-indicator-success {
+    background: #163 !important;
   }
   /* status.github.com */
   #message.good {
@@ -1494,6 +1506,10 @@ background-position: left top !important;
     background: #440 !important;
     border-color: #880 !important;
   }
+  .prose-diff > .markdown-body th.changed, .prose-diff > .markdown-body td.changed {
+    background: #282818 !important;
+  }
+
   .blob-code-addition .x , .highlight .blob-code-addition .x {
     background: #252 !important;
     color: #eee !important;
@@ -1604,13 +1620,13 @@ background-position: left top !important;
   }
 
   /* ZenHub styling */
-  .zh-button {
-    background-color: #4183C4 !important;
-    border-color: #4183C4 !important;
+  .zh-button, .is-not-pawed:hover .zh-paw-btn-inner {
+    background-color: /*[[base-color]]*/ #4183C4 !important;
+    border-color: /*[[base-color]]*/ #4183C4 !important;
     color: #fff !important;
   }
   .zh-pipeline-issue-toggler:hover, .date_selector .date-button {
-    color: #4183C4 !important;
+    color: /*[[base-color]]*/ #4183C4 !important;
   }
   /* background */
   .zh-overlay {
@@ -1637,7 +1653,7 @@ background-position: left top !important;
     background-color: #222 !important;
     border-color: #484848 !important;
   }
-  .zh-uploader-drop, .zh-button-grey.selected, .zh-button-grey:hover {
+  .zh-uploader-drop, .zh-button-grey.selected, .zh-button-grey:hover, .is-not-pawed:not(.zh-paw-count-0) {
     background: #333 !important;
   }
   .zh-chart .yaxis-strips .hstripe:nth-child(2n) {
@@ -1684,6 +1700,10 @@ background-position: left top !important;
     vertical-align: middle !important;
   }
   /* vote */
+  .is-not-pawed .zh-paw-btn-inner {
+    background: transparent !important;
+    border: #484848 1px solid !important;
+  }
   .is-pawed .zh-paw-btn-inner {
     background: #207038 !important;
     color: #333 !important;
@@ -1735,7 +1755,206 @@ background-position: left top !important;
 
   /* inline code - big blocks */
   pre, .markdown-format pre, .markdown-body pre, .markdown-format .highlight pre, .markdown-body .highlight pre,
-  body.blog pre, #facebox pre, .blob-code-context, .blob-num-context, .blob-expanded, .terminal, .copyable-terminal,
-  #notebook .input_area,
+  body.blog pre, #facebox pre, .blob-expanded, .terminal, .copyable-terminal,
+  #notebook .input_area, .blob-code-context,
 
-  /*! Tomorrow Night */.ace_editor,.highlight{background-color:#1D1F21!important;color:#C5C8C6!important}.pl-c{color:#969896!important;font-style:italic!important}.pl-c1,.pl-cce,.pl-cn,.pl-coc{color:#DE935F!important}.pl-cos{color:#B5BD68!important}.pl-e,.pl-ef,.pl-en{color:#F0C674!important}.pl-enc{color:#DE935F!important}.pl-enf,.pl-enm{color:#F0C674!important}.pl-ens{color:#DE935F!important}.pl-ent{color:#B294BB!important}.pl-entc{color:#F0C674!important}.pl-enti{color:#F0C674!important;font-weight:700!important}.pl-entm{color:#C66!important}.pl-eoa{color:#B294BB!important}.pl-eoac,.pl-eoac .pl-pde{color:#C66!important}.pl-eoai,.pl-eoai .pl-pde{color:#B294BB!important}.pl-eoi{color:#F0C674!important}.pl-k,.pl-ko,.pl-kolp{color:#B294BB!important}.pl-kos,.pl-kou{color:#DE935F!important}.pl-mai .pl-sf{color:#C66!important}.pl-mb{color:#B5BD68!important;font-weight:700!important}.pl-mc{color:#B294BB!important}.pl-mh .pl-pdh{color:#DE935F!important}.pl-mi{color:#B294BB!important;font-style:italic!important}.pl-ml{color:#B5BD68!important}.pl-mm{color:#C66!important}.pl-mp,.pl-mp1 .pl-sf{color:#81A2BE!important}.pl-mq{color:#DE935F!important}.pl-mr,.pl-ms{color:#B294BB!important}.pl-pdb{color:#B5BD68!important;font-weight:700!important}.pl-pdc{color:#969896!important;font-style:italic!important}.pl-pdc1,.pl-pde{color:#DE935F!important}.pl-pdi{color:#B294BB!important;font-style:italic!important}.pl-pds{color:#B5BD68!important}.pl-pdv{color:#C66!important}.pl-pse,.pl-pse .pl-s2{color:#DE935F!important}.pl-s{color:#B294BB!important}.pl-s1{color:#B5BD68!important}.pl-s2{color:#c5c8c6!important}.pl-mp .pl-s3{color:#B294BB!important}.pl-s3{color:#81a2be!important}.pl-sc{color:#c5c8c6!important}.pl-scp{color:#DE935F!important}.pl-sf{color:#DAD085!important}.pl-smc{color:#F0C674!important}.pl-smi,.pl-smp{color:#c5c8c6!important}.pl-sok{color:#B294BB!important}.pl-sol{color:#B5BD68!important}.pl-som,.pl-sr{color:#C66!important}.pl-sra,.pl-src,.pl-sre,.pl-st{color:#B294BB!important}.pl-stj{color:#c5c8c6!important}.pl-stp,.pl-sv,.pl-v,.pl-vi{color:#DE935F!important}.pl-vo{color:#C66!important}.pl-vpf{color:#DE935F!important}.pl-mdht,.pl-mi1{color:#8F9D6A!important;background:rgba(0,64,0,.5)!important}.pl-md,.pl-mdhf{color:#C66!important;background:rgba(64,0,0,.5)!important}.pl-mdr{color:#DE935F!important;font-weight:400!important}.pl-mdh,.pl-mdi{color:#C66!important;font-weight:400!important}.pl-ib{background-color:#C66!important}.pl-id,.pl-ii{background-color:#C66!important;color:#fff!important}.pl-iu{background-color:#C66!important}.pl-mo{color:#c5c8c6!important}.pl-mri{color:#DE935F!important}.pl-ms1{background-color:#c5c8c6!important}.pl-va,.pl-vpu{color:#DE935F!important}.pl-entl{color:#c5c8c6!important}.ace_editor .ace_gutter{background:#25282c!important;color:#C5C8C6!important}.ace_editor .ace_print-margin{width:1px!important;background:#25282c!important}.ace_editor .ace_cursor{color:#AEAFAD!important}.ace_editor .ace_marker-layer .ace_selection{background:#373B41!important}.ace_editor.ace_multiselect .ace_selection.ace_start{box-shadow:0 0 3px 0 #1D1F21!important;border-radius:2px!important}.ace_editor .ace_marker-layer .ace_step{background:#665200!important}.ace_editor .ace_marker-layer .ace_bracket{margin:-1px 0 0 -1px!important;border:1px solid #4B4E55!important}.ace_editor .ace_marker-layer .ace_active-line{background:#282A2E!important}.ace_editor .ace_gutter-active-line{background-color:#282A2E!important}.ace_editor .ace_marker-layer .ace_selected-word{border:1px solid #373B41!important}.ace_editor .ace_invisible{color:#4B4E55!important}.ace_editor .ace_keyword,.ace_editor .ace_meta,.ace_editor .ace_storage,.ace_editor .ace_storage.ace_type,.ace_editor .ace_support.ace_type{color:#B294BB!important}.ace_editor .ace_keyword.ace_operator{color:#8ABEB7!important}.ace_editor .ace_constant.ace_character,.ace_editor .ace_constant.ace_language,.ace_editor .ace_constant.ace_numeric,.ace_editor .ace_keyword.ace_other.ace_unit,.ace_editor .ace_support.ace_constant,.ace_editor .ace_variable.ace_parameter{color:#DE935F!important}.ace_editor .ace_constant.ace_other{color:#CED1CF!important}.ace_editor .ace_invalid{color:#CED2CF!important;background-color:#DF5F5F!important}.ace_editor .ace_invalid.ace_deprecated{color:#CED2CF!important;background-color:#B798BF!important}.ace_editor .ace_fold{background-color:#81A2BE!important;border-color:#C5C8C6!important}.ace_editor .ace_entity.ace_name.ace_function,.ace_editor .ace_support.ace_function,.ace_editor .ace_variable{color:#81A2BE!important}.ace_editor .ace_support.ace_class,.ace_editor .ace_support.ace_type{color:#F0C674!important}.ace_editor .ace_heading,.ace_editor .ace_markup.ace_heading,.ace_editor .ace_string{color:#B5BD68!important}.ace_editor .ace_entity.ace_name.ace_tag,.ace_editor .ace_entity.ace_other.ace_attribute-name,.ace_editor .ace_meta.ace_tag,.ace_editor .ace_string.ace_regexp,.ace_editor .ace_variable{color:#C66!important}.ace_editor .ace_comment{color:#969896!important}.ace_editor .ace_indent-guide{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWNgYGBgYHB3d/8PAAOIAdULw8qMAAAAAElFTkSuQmCC) right repeat-y!important}/*! tomorrow night; https://github.com/MozMorris/tomorrow-pygments */#notebook .highlight,#notebook .highlight pre,#notebook .highlight table{background:#1d1f21!important;color:#c5c8c6!important}#notebook .highlight .hll{background-color:#373b41!important}#notebook .highlight .c{color:#969896!important}#notebook .highlight .err{color:#c66!important}#notebook .highlight .k{color:#b294bb!important}#notebook .highlight .l{color:#de935f!important}#notebook .highlight .h,#notebook .highlight .n{color:#c5c8c6!important}#notebook .highlight .o{color:#8abeb7!important}#notebook .highlight .p{color:#c5c8c6!important}#notebook .highlight .c1,#notebook .highlight .cm,#notebook .highlight .cp,#notebook .highlight .cs{color:#969896!important}#notebook .highlight .gd{color:#c66!important}#notebook .highlight .ge{font-style:italic!important}#notebook .highlight .gh{color:#c5c8c6!important;font-weight:700!important}#notebook .highlight .gi{color:#b5bd68!important}#notebook .highlight .gp{color:#969896!important;font-weight:700!important}#notebook .highlight .gs{font-weight:700!important}#notebook .highlight .gu{color:#8abeb7!important;font-weight:700!important}#notebook .highlight .kc,#notebook .highlight .kd{color:#b294bb!important}#notebook .highlight .kn{color:#8abeb7!important}#notebook .highlight .kp,#notebook .highlight .kr{color:#b294bb!important}#notebook .highlight .kt{color:#f0c674!important}#notebook .highlight .ld{color:#b5bd68!important}#notebook .highlight .m{color:#de935f!important}#notebook .highlight .s{color:#b5bd68!important}#notebook .highlight .na{color:#81a2be!important}#notebook .highlight .nb{color:#c5c8c6!important}#notebook .highlight .nc{color:#f0c674!important}#notebook .highlight .no{color:#c66!important}#notebook .highlight .nd{color:#8abeb7!important}#notebook .highlight .ni{color:#c5c8c6!important}#notebook .highlight .ne{color:#c66!important}#notebook .highlight .nf{color:#81a2be!important}#notebook .highlight .nl{color:#c5c8c6!important}#notebook .highlight .nn{color:#f0c674!important}#notebook .highlight .nx{color:#81a2be!important}#notebook .highlight .py{color:#c5c8c6!important}#notebook .highlight .nt{color:#8abeb7!important}#notebook .highlight .nv{color:#c66!important}#notebook .highlight .ow{color:#8abeb7!important}#notebook .highlight .w{color:#c5c8c6!important}#notebook .highlight .mf,#notebook .highlight .mh,#notebook .highlight .mi,#notebook .highlight .mo{color:#de935f!important}#notebook .highlight .sb{color:#b5bd68!important}#notebook .highlight .sc{color:#c5c8c6!important}#notebook .highlight .sd{color:#969896!important}#notebook .highlight .s2{color:#b5bd68!important}#notebook .highlight .se{color:#de935f!important}#notebook .highlight .sh{color:#b5bd68!important}#notebook .highlight .si{color:#de935f!important}#notebook .highlight .s1,#notebook .highlight .sr,#notebook .highlight .ss,#notebook .highlight .sx{color:#b5bd68!important}#notebook .highlight .bp{color:#c5c8c6!important}#notebook .highlight .vc,#notebook .highlight .vg,#notebook .highlight .vi{color:#c66!important}#notebook .highlight .il{color:#de935f!important}
+  /*[[syntax-theme]]*/
+  /* grunt build - remove to end of file */
+
+  /* Syntax Theme - Twilight */
+  .highlight, .ace_editor {
+    background: #141414 !important;
+    color: #ddd !important;
+  }
+
+  .pl-c            { color: #5F5A60 !important; font-style: italic !important; } /* comment */
+  .pl-c1           { color: #CF6A4C !important; } /* constant */
+  .pl-cce          { color: #CF6A4C !important; font-weight: normal !important; } /* constant.character.escape */
+  .pl-cn           { color: #CF6A4C !important; } /* constant.numeric */
+  .pl-coc          { color: #CF6A4C !important; } /* constant.other.color */
+  .pl-cos          { color: #8F9D6A !important; } /* constant.other.symbol */
+  .pl-e            { color: #AC885B !important; } /* entity */
+  .pl-ef           { color: #AC885B !important; } /* entity.function */
+  .pl-en           { color: #AC885B !important; } /* entity.name */
+  .pl-enc          { color: #CF6A4C !important; } /* entity.name.class */
+  .pl-enf          { color: #AC885B !important; } /* entity.name.function */
+  .pl-enm          { color: #AC885B !important; } /* entity.name.method-name */
+  .pl-ens          { color: #CF6A4C !important; } /* entity.name.section */
+  .pl-ent          { color: #CDA869 !important; } /* entity.name.tag */
+  .pl-entc         { color: #AC885B !important; } /* entity.name.type.class */
+  .pl-enti         { color: #AC885B !important; font-weight: bold !important; } /* entity.name.type.instance */
+  .pl-entm         { color: #7587A6 !important; } /* entity.name.type.module */
+  .pl-eoa          { color: #CDA869 !important; } /* entity.other.attribute-name */
+  .pl-eoac         { color: #7587A6 !important; } /* entity.other.attribute-name.class */
+  .pl-eoac .pl-pde { color: #7587A6 !important; } /* punctuation.definition.entity */
+  .pl-eoai         { color: #CDA869 !important; } /* entity.other.attribute-name.id */
+  .pl-eoai .pl-pde { color: #CDA869 !important; } /* punctuation.definition.entity */
+  .pl-eoi          { color: #AC885B !important; } /* entity.other.inherited-class */
+  .pl-k            { color: #CDA869 !important; } /* keyword */
+  .pl-ko           { color: #CDA869 !important; } /* keyword.operator */
+  .pl-kolp         { color: #CDA869 !important; } /* keyword.operator.logical.python */
+  .pl-kos          { color: #CF6A4C !important; } /* keyword.other.special-method */
+  .pl-kou          { color: #CF6A4C !important; } /* keyword.other.unit */
+  .pl-mai .pl-sf   { color: #7587A6 !important; } /* support.function */
+  .pl-mb           { color: #8F9D6A !important; font-weight: bold !important; } /* markup.bold */
+  .pl-mc           { color: #CDA869 !important; } /* markup.changed */
+  .pl-mh           { color: #CF6A4C !important; font-weight: normal !important; } /* markup.heading */
+  .pl-mh .pl-pdh   { color: #CF6A4C !important; } /* markup.heading punctuation.definition.heading */
+  .pl-mi           { color: #CDA869 !important; font-style: italic !important; } /* markup.italic */
+  .pl-ml           { color: #8F9D6A !important; } /* markup.list */
+  .pl-mm           { color: #7587A6 !important; } /* meta.module-reference */
+  .pl-mp           { color: #C5AF75 !important; } /* meta.property-name */
+  .pl-mp1 .pl-sf   { color: #DAD085 !important; } /* meta.property-value support.function */
+  .pl-mq           { color: #CF6A4C !important; } /* markup.quote */
+  .pl-mr           { color: #CDA869 !important; } /* meta.require */
+  .pl-ms           { color: #CDA869 !important; } /* meta.selector */
+  .pl-pdb          { color: #8F9D6A !important; font-weight: bold !important; } /* punctuation.definition.bold */
+  .pl-pdc          { color: #5F5A60 !important; font-style: italic !important; } /* punctuation.definition.comment */
+  .pl-pdc1         { color: #CF6A4C !important; } /* punctuation.definition.constant */
+  .pl-pde          { color: #CF6A4C !important; } /* punctuation.definition.entity */
+  .pl-pdi          { color: #CDA869 !important; font-style: italic !important; } /* punctuation.definition.italic */
+  .pl-pds          { color: #8F9D6A !important; } /* punctuation.definition.string */
+  .pl-pdv          { color: #7587A6 !important; } /* punctuation.definition.variable */
+  .pl-pse          { color: #CF6A4C !important; } /* punctuation.section.embedded */
+  .pl-pse .pl-s2   { color: #CF6A4C !important; } /* punctuation.section.embedded source */
+  .pl-s            { color: #F9EE98 !important; } /* storage */
+  .pl-s1           { color: #8F9D6A !important; } /* string */
+  .pl-s2           { color: #ddd    !important; } /* source */
+  .pl-mp .pl-s3    { color: #CDA869 !important; } /* support */
+  .pl-s3           { color: #DAD085 !important; } /* support */
+  .pl-sc           { color: #DAD085 !important; } /* support.class */
+  .pl-scp          { color: #CF6A4C !important; } /* support.constant.property-value */
+  .pl-sf           { color: #DAD085 !important; } /* support.function */
+  .pl-smc          { color: #AC885B !important; } /* storage.modifier.c */
+  .pl-smi          { color: #ddd    !important; } /* storage.modifier.import */
+  .pl-smp          { color: #ddd    !important; } /* storage.modifier.package */
+  .pl-sok          { color: #CDA869 !important; } /* support.other.keyword */
+  .pl-sol          { color: #8F9D6A !important; } /* string.other.link */
+  .pl-som          { color: #7587A6 !important; } /* support.other.module */
+  .pl-sr           { color: #7587A6 !important; } /* string.regexp */
+  .pl-sra          { color: #CDA869 !important; } /* string.regexp string.regexp.arbitrary-repitition */
+  .pl-src          { color: #CDA869 !important; } /* string.regexp.character-class */
+  .pl-sre          { color: #CDA869 !important; } /* string.regexp source.ruby.embedded */
+  .pl-st           { color: #CDA869 !important; } /* support.type */
+  .pl-stj          { color: #7587A6 !important; } /* storage.type.java */
+  .pl-stp          { color: #9B859D !important; } /* support.type.property-name */
+  .pl-sv           { color: #9B859D !important; } /* support.variable */
+  .pl-v            { color: #9B859D !important; } /* variable */
+  .pl-vi           { color: #CF6A4C !important; } /* variable.interpolation */
+  .pl-vo           { color: #AC885B !important; } /* */
+  .pl-vpf          { color: #7587A6 !important; } /* variable.parameter.function */
+  /* Diff - Example: https://gist.github.com/silverwind/904159f1e71e2e626375 */
+  .pl-mi1          { color: #55A532 !important; background: #020 !important; } /* markup.inserted */
+  .pl-mdht         { color: #55A532 !important; background: #020 !important; } /* meta.diff.header.to-file */
+  .pl-md           { color: #BD2C00 !important; background: #200 !important; } /* markup.deleted */
+  .pl-mdhf         { color: #BD2C00 !important; background: #200 !important; } /* meta.diff.header.from-file */
+  .pl-mdr          { color: #CF6A4C !important; font-weight: normal !important;} /* meta.diff.range */
+  .pl-mdh          { color: #7587A6 !important; font-weight: normal !important;} /* meta.diff.header */
+  .pl-mdi          { color: #7587A6 !important; font-weight: normal !important;} /* meta.diff.index */
+  /* TODO: Fix unstyled classes below */
+  .pl-ib           { background-color: #f93 !important; } /* invalid.broken */
+  .pl-id           { background-color: #a31515 !important; color: #fff !important; } /* invalid.deprecated */
+  .pl-ii           { background-color: #df5000 !important; color: #fff !important; } /* invalid.illegal */
+  .pl-iu           { background-color: #b4b7b4 !important; } /* invalid.unimplemented */
+  .pl-mo           { color: #969896 !important; } /* meta.output */
+  .pl-mri          { color: #008080 !important; } /* markup.raw.inline */
+  .pl-ms1          { background-color: #f5f5f5 !important; } /* meta.separator */
+  .pl-va           { color: #008080 !important; } /* variable.assignment */
+  .pl-vpu          { color: #008080 !important; } /* variable.parameter.url */
+  .pl-entl         { color: #ddd    !important; } /* entity.name.tag.label */
+
+  /*! twilight */
+  .ace_editor .ace_gutter{background:#232323!important;color:#E2E2E2!important}
+  .ace_editor .ace_print-margin{width:1px!important;background:#232323!important}
+  .ace_editor .ace_cursor{color:#A7A7A7!important}
+  .ace_editor .ace_marker-layer .ace_selection{background:rgba(221,240,255,.2)!important}
+  .ace_editor.ace_multiselect .ace_selection.ace_start{box-shadow:0 0 3px 0 #141414!important;border-radius:2px!important}
+  .ace_editor .ace_marker-layer .ace_step{background:#665200!important}
+  .ace_editor .ace_marker-layer .ace_bracket{margin:-1px 0 0 -1px!important;border:1px solid rgba(255,255,255,.25)!important}
+  .ace_editor .ace_marker-layer .ace_active-line{background:rgba(255,255,255,.031)!important}
+  .ace_editor .ace_gutter-active-line{background-color:rgba(255,255,255,.031)!important}
+  .ace_editor .ace_identifier{color:#7587A6!important}
+  .ace_editor .ace_invisible{color:rgba(255,255,255,.25)!important}
+  .ace_editor .ace_keyword,.ace_editor .ace_meta{color:#CDA869!important}
+  .ace_editor .ace_constant,.ace_editor .ace_constant.ace_character,.ace_editor .ace_constant.ace_character.ace_escape,
+  .ace_editor .ace_constant.ace_other,.ace_editor .ace_heading,.ace_editor .ace_markup.ace_heading,
+  .ace_editor .ace_support.ace_constant{color:#CF6A4C!important}
+  .ace_editor .ace_invalid.ace_illegal{color:#F8F8F8!important;background-color:rgba(86,45,86,.75)!important}
+  .ace_editor .ace_invalid.ace_deprecated{text-decoration:underline!important;font-style:italic!important;color:#D2A8A1!important}
+  .ace_editor .ace_support{color:#9B859D!important}
+  .ace_editor .ace_fold{background-color:#AC885B!important;border-color:#F8F8F8!important}
+  .ace_editor .ace_support.ace_function{color:#DAD085!important}
+  .ace_editor .ace_support.ace_type{color:#CDA869!important}
+  .ace_editor .ace_list,.ace_editor .ace_markup.ace_list,.ace_editor .ace_storage{color:#F9EE98!important}
+  .ace_editor .ace_entity.ace_name.ace_function,.ace_editor .ace_meta.ace_tag{color:#CDA869!important}
+  .ace_editor .ace_entity.ace_other.ace_attribute-name{color:#AC885B!important;} /* html attribute name */
+  .ace_editor .ace_string{color:#8F9D6A!important}
+  .ace_editor .ace_string.ace_regexp{color:#E9C062!important}
+  .ace_editor .ace_comment{font-style:italic!important;color:#5F5A60!important}
+  .ace_editor .ace_variable{color:#7587A6!important}
+  .ace_editor .ace_variable.ace_language{color:#9B859D!important}
+  .ace_editor .ace_xml-pe{color:#494949!important}
+  .ace_editor .ace_indent-guide{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWMQERFpYLC1tf0PAAgOAnPnhxyiAAAAAElFTkSuQmCC) right repeat-y!important}
+
+  /* Jupyter Notebooks */
+  /*! Twilight; https://gist.github.com/dansimpson/803005 */
+  #notebook .highlight table { background: #181818 !important; color: #F8F8F8 !important;font-family: Consolas, Monaco,"Lucida Console" !important; }
+  #notebook .highlight * { font-family: Consolas, Monaco,"Lucida Console" !important; color: #F8F8F8 !important; }
+  #notebook .highlight .hll { background-color: #ffffcc !important; }
+  #notebook .highlight .c { color: #5F5A60 !important; font-style: italic !important; } /* Comment */
+  #notebook .highlight .err { border:#B22518 !important; } /* Error */
+  #notebook .highlight .k { color: #CDA869 !important; } /* Keyword */
+  #notebook .highlight .cm { color: #5F5A60 !important; font-style: italic !important; } /* Comment.Multiline */
+  #notebook .highlight .cp { color: #5F5A60 !important; } /* Comment.Preproc */
+  #notebook .highlight .c1 { color: #5F5A60 !important; font-style: italic !important; } /* Comment.Single */
+  #notebook .highlight .cs { color: #5F5A60 !important; font-style: italic !important; } /* Comment.Special */
+  #notebook .highlight .gd { background: #420E09 !important; } /* Generic.Deleted */
+  #notebook .highlight .ge { font-style: italic !important; } /* Generic.Emph */
+  #notebook .highlight .gr { background: #B22518 !important; } /* Generic.Error */
+  #notebook .highlight .gh { color: #000080 !important; font-weight: bold !important; } /* Generic.Heading */
+  #notebook .highlight .gi { background: #253B22 !important; } /* Generic.Inserted */
+  #notebook .highlight .go { } /* Generic.Output */
+  #notebook .highlight .gp { font-weight: bold !important; } /* Generic.Prompt */
+  #notebook .highlight .gs { font-weight: bold !important; } /* Generic.Strong */
+  #notebook .highlight .gu { color: #800080 !important; font-weight: bold !important; } /* Generic.Subheading */
+  #notebook .highlight .gt { } /* Generic.Traceback */
+  #notebook .highlight .kc { } /* Keyword.Constant */
+  #notebook .highlight .kd { color: #e9df8f !important; } /* Keyword.Declaration */
+  #notebook .highlight .kn { } /* Keyword.Namespace */
+  #notebook .highlight .kp { color: #9B703F !important; } /* Keyword.Pseudo */
+  #notebook .highlight .kr { } /* Keyword.Reserved */
+  #notebook .highlight .kt { } /* Keyword.Type */
+  #notebook .highlight .m { } /* Literal.Number */
+  #notebook .highlight .s { } /* Literal.String */
+  #notebook .highlight .na { color: #F9EE98 !important; } /* Name.Attribute */
+  #notebook .highlight .nb { color: #CDA869 !important; } /* Name.Builtin */
+  #notebook .highlight .nc { color: #9B859D !important; font-weight: bold !important; } /* Name.Class */
+  #notebook .highlight .no { color: #9B859D !important; } /* Name.Constant */
+  #notebook .highlight .nd { color: #7587A6 !important; } /* Name.Decorator */
+  #notebook .highlight .ni { color: #CF6A4C !important; font-weight: bold !important; } /* Name.Entity */
+  #notebook .highlight .nf { color: #9B703F !important; font-weight: bold !important; } /* Name.Function */
+  #notebook .highlight .nn { color: #9B859D !important; font-weight: bold !important; } /* Name.Namespace */
+  #notebook .highlight .nt { color: #CDA869 !important; font-weight: bold !important; } /* Name.Tag */
+  #notebook .highlight .nv { color: #7587A6 !important; } /* Name.Variable */
+  #notebook .highlight .ow { color: #AA22FF !important; font-weight: bold !important; } /* Operator.Word */
+  #notebook .highlight .w { color: #141414 !important; } /* Text.Whitespace */
+  #notebook .highlight .mf { color: #CF6A4C !important; } /* Literal.Number.Float */
+  #notebook .highlight .mh { color: #CF6A4C !important; } /* Literal.Number.Hex */
+  #notebook .highlight .mi { color: #CF6A4C !important; } /* Literal.Number.Integer */
+  #notebook .highlight .mo { color: #CF6A4C !important; } /* Literal.Number.Oct */
+  #notebook .highlight .sb { color: #8F9D6A !important; } /* Literal.String.Backtick */
+  #notebook .highlight .sc { color: #8F9D6A !important; } /* Literal.String.Char */
+  #notebook .highlight .sd { color: #8F9D6A !important; font-style: italic !important; } /* Literal.String.Doc */
+  #notebook .highlight .s2 { color: #8F9D6A !important; } /* Literal.String.Double */
+  #notebook .highlight .se { color: #F9EE98 !important; font-weight: bold !important; } /* Literal.String.Escape */
+  #notebook .highlight .sh { color: #8F9D6A !important; } /* Literal.String.Heredoc */
+  #notebook .highlight .si { color: #DAEFA3 !important; font-weight: bold !important; } /* Literal.String.Interpol */
+  #notebook .highlight .sx { color: #8F9D6A !important; } /* Literal.String.Other */
+  #notebook .highlight .sr { color: #E9C062 !important; } /* Literal.String.Regex */
+  #notebook .highlight .s1 { color: #8F9D6A !important; } /* Literal.String.Single */
+  #notebook .highlight .ss { color: #CF6A4C !important; } /* Literal.String.Symbol */
+  #notebook .highlight .bp { color: #00aaaa !important; } /* Name.Builtin.Pseudo */
+  #notebook .highlight .vc { color: #7587A6 !important; } /* Name.Variable.Class */
+  #notebook .highlight .vg { color: #7587A6 !important; } /* Name.Variable.Global */
+  #notebook .highlight .vi { color: #7587A6 !important; } /* Name.Variable.Instance */
+  #notebook .highlight .il { color: #009999 !important; } /* Literal.Number.Integer.Long */
