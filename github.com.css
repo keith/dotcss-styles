@@ -1,4 +1,4 @@
- /*! Github Dark Theme v1.14.12 (8/22/2015) *//*
+ /*! Github Dark Theme v1.14.18 (10/13/2015) *//*
  * https://github.com/StylishThemes/GitHub-Dark
  * http://userstyles.org/styles/37035
  * License: https://creativecommons.org/licenses/by-sa/4.0/
@@ -102,7 +102,7 @@
   .release-timeline-tags .expander-text:hover .expander-dots,
   a.gollum-minibutton:hover, a.gollum-minibutton:visited:hover,
   .search-result-item.navigation-focus,
-  .gist-quicksearch-result.navigation-focus {
+  .gist-quicksearch-result.navigation-focus, .gist-snippet .link-overlay .link {
     background: /*[[base-color]]*/ #4183C4 !important;
   }
   .context-button:after {
@@ -111,7 +111,7 @@
   .octofication .message, .panel-nav:not(.disabled):active,
   .diagram-icon:not(.active), .full-commit .btn.btn-outline:hover,
   .btn.btn-outline:hover, .btn.btn-outline.zeroclipboard-is-hover,
-  :checked + .radio-label {
+  :checked + .radio-label, .gist-snippet .file-box:hover .file {
     border-color: /*[[base-color]]*/ #4183C4 !important;
   }
   .header-nav-link:hover .dropdown-caret, .header-nav-link:focus .dropdown-caret {
@@ -209,9 +209,7 @@
   div.search-form.small input {
     width: auto !important;
   }
-  pre, .highlight, .diff-table, .tab-size-1, .tab-size-2, .tab-size-3,
-  .tab-size-4, .tab-size-5, .tab-size-6, .tab-size-7, .tab-size-8, .tab-size-9,
-  .tab-size-10, .tab-size-11, .tab-size-12 {
+  pre, .highlight, .diff-table, .tab-size {
          tab-size: /*[[tab-size]]*/ 2 !important;
     -moz-tab-size: /*[[tab-size]]*/ 2 !important;
   }
@@ -293,7 +291,7 @@
   .markdown-body strike code, .markdown-body strike tt {
     text-decoration: line-through !important;
   }
-  .dropdown-menu {
+  .dropdown-menu, .word-upload-callout {
     box-shadow: 0 3px 12px rgba(0,0,0,.4) !important;
   }
   /* === Remove shadow === */
@@ -356,7 +354,7 @@
   #readme .plain pre, .uploaded-files, .merge-pr-more-commits code,
   .two-factor-toggle .two-factor-status button, .input_area,
   #notebook .highlight, #notebook .highlight pre, .output_area pre,
-  .gist-snippet-meta .gist-count-links>li>a:hover {
+  .gist-snippet-meta .gist-count-links>li>a:hover, .markdown-body img {
     background: transparent !important;
   }
   .render-container.is-render-ready.is-render-requested:not(.is-render-failed) {
@@ -375,7 +373,8 @@
   }
   /* border-radius */
   #wrapper, #your-repos-filter, .topsearch ul.nav, .merge-pr-more-commits,
-  .oauth-org-access-details .boxed-group-list > li.on {
+  .oauth-org-access-details .boxed-group-list > li.on,
+  .gist-snippet .file-box .highlight {
     border-radius: 3px !important;
   }
   body[data-render-url], .render-viewer, .comment-content,
@@ -414,24 +413,6 @@
   }
   .menu-item.selected:before {
     background-color: #eee !important;
-  }
-  /* hover highlight in code and diffs */
-  .diff-table tr:hover > pre,
-  .highlight:not(.lines) tr:not(.inline-comments):hover td:not(.line-age):not([style^="background-color: rgb(248, 238, 199)"]) {
-    background: #272727 !important;
-  }
-  .highlight:not(.lines) tr:not(.inline-comments):hover td.blob-num-addition:not(.line-age),
-  .highlight:not(.lines) tr:not(.inline-comments):hover td.blob-code-addition:not(.line-age) {
-    background: #103810 !important;
-  }
-  .highlight:not(.lines) tr:not(.inline-comments):hover td.blob-num-deletion:not(.line-age),
-  .highlight:not(.lines) tr:not(.inline-comments):hover td.blob-code-deletion:not(.line-age) {
-    background: #481010 !important;
-  }
-  .highlight:not(.lines) tr:not(.inline-comments):hover td.selected-line.blob-num:not(.line-age),
-  .highlight:not(.lines) tr:not(.inline-comments):hover td.selected-line.blob-code:not(.line-age),
-  .highlight tr:not(.inline-comments):hover td[style^="background-color: rgb(248, 238, 199)"] {
-    background: #363610 !important;
   }
   /* ace find highlight */
   .ace_editor .ace_marker-layer .ace_selected-word {
@@ -477,6 +458,16 @@
     padding: 0 .3em !important;
     display: inline-block !important;
     max-width: 100% !important;
+  }
+  /* GitHub Bug: Enable wrapping of long code lines */
+  .blob-code-inner, .markdown-body > pre > code,
+  .markdown-body > .highlight > pre {
+    white-space: pre-wrap !important;
+    word-break: break-all !important;
+    display: block !important;
+  }
+  td.blob-code-inner {
+    display: table-cell !important;
   }
   /* invisible border */
   .gisttabs a:not(.selected), .gisttabs a:not(.selected):hover,
@@ -590,7 +581,9 @@
   .pagehead-tabs-item.selected, .org-header, .pagehead,
   .branch-action-item + .mergeability-details, .migration-section,
   .migrate-org-roles, .migrate-org-roles-header, .migrate-org-roles-item,
-  .migrate-org-roles-count, .migration-footer, .migration-feature-list:before {
+  .migrate-org-roles-count, .migration-footer, .migration-feature-list:before,
+  .migration-org-avatar, .org-migration-settings-section,
+  .word-upload-callout .note {
     border-color: #343434 !important;
   }
   .discussion-item-icon, .date:after, .render-shell img, img.asset,
@@ -660,6 +653,9 @@
     border-bottom-color: #222 !important;
     border-top-width: 1px !important;
   }
+  .word-upload-callout::before, .word-upload-callout::after {
+    border-bottom-color: #343434 !important;
+  }
   .pagehead-tabs {
     margin-bottom: -23px !important;
   }
@@ -691,7 +687,6 @@
     background: #000 !important;
   }
   /* === #181818 === */
-  /* needed background inbetween #111 and #222 :P */
   .commitinfo, .gc .diff-line-code, .gc .diff-line-num, .gc .diff-line-pre,
   .featured-commit-activity-graph, .featured-repo-logo, .outline-box,
   .gobutton>.sha .octicon, .markdown-body .csv-data .blob-num, #feedBody,
@@ -714,7 +709,7 @@
   input[type="url"], textarea, .two-factor-help, .dropdown-menu,
   .thread-subscription-status, .branch-action-body .merge-message,
   .branch-action-body .merge-branch-form, .pull-info, .branch-link,
-  .discussion-item-merged.open .discussion-item-details {
+  .discussion-item-merged.open .discussion-item-details, .word-upload-callout {
     background: #181818 !important;
     border-color: #343434 !important;
   }
@@ -752,7 +747,7 @@
   .oauth-org-access-details .boxed-group-list > li.on, #fullscreen_overlay,
   .timeline-new-comment .discussion-topic-header, .branch-action-body,
   .inline-comment-form, .file-history-tease .participation,
-  .gist-quicksearch-result-header {
+  .gist-quicksearch-result-header, .label-generic, .migrate-org-roles {
     background: #181818 !important;
   }
   .markdown-body table tr, .blob-num-context {
@@ -926,8 +921,7 @@
     border-color: #484848 !important;
   }
   /* blame heats */
-  .heat1, .heat2, .heat3, .heat4, .heat5, .heat6, .heat7, .heat8, .heat9,
-  .heat10, .contrib-legend li, #contributions-calendar rect[fill="#d6e685"],
+  .heat, .contrib-legend li, #contributions-calendar rect[fill="#d6e685"],
   #contributions-calendar rect[fill="#8cc665"],
   #contributions-calendar rect[fill="#44a340"],
   #contributions-calendar rect[fill="#1e6823"] {
@@ -938,24 +932,31 @@
     background-color: #282828 !important;
     fill: #282828 !important;
   }
-  .heat1, .heat2, #contributions-calendar rect[fill="#d6e685"],
+  .heat[data-heat="1"], .heat[data-heat="2"],
+  #contributions-calendar rect[fill="#d6e685"],
   .contrib-legend li[style*="#d6e685"] {
     opacity: .2 !important;
   }
-  .heat3, .heat4, #contributions-calendar rect[fill="#8cc665"],
+  .heat[data-heat="3"], .heat[data-heat="4"],
+  #contributions-calendar rect[fill="#8cc665"],
   .contrib-legend li[style*="#8cc665"] {
     opacity: .4 !important;
   }
-  .heat5, .heat6, #contributions-calendar rect[fill="#44a340"],
+  .heat[data-heat="5"], .heat[data-heat="6"],
+  #contributions-calendar rect[fill="#44a340"],
   .contrib-legend li[style*="#44a340"] {
     opacity: .6 !important;
   }
-  .heat7, .heat8, #contributions-calendar rect[fill="#1e6823"],
+  .heat[data-heat="7"], .heat[data-heat="8"],
+  #contributions-calendar rect[fill="#1e6823"],
   .contrib-legend li[style*="#1e6823"] {
     opacity: .8 !important;
   }
   #contributions-calendar .days-selected rect.day.active {
     stroke: #ddd !important;
+  }
+  #contributions-calendar rect.day:hover {
+    stroke: #fff !important;
   }
   /* selected calendar day */
   /* invert (rgb) */
@@ -968,7 +969,8 @@
   .onion-skin .controls .transparent, .onion-skin .controls .opaque,
   .onion-skin .controls .slider .slider-track,
   .onion-skin .controls .slider .slider-track .dragger, .leaflet-control-zoom a,
-  .leaflet-control-attribution.leaflet-compact-attribution:after {
+  .leaflet-control-attribution.leaflet-compact-attribution:after,
+  img[src$='favicons.githubusercontent.com/github.com'] {
     -webkit-filter: invert(100%) !important;
             filter: invert(100%) !important;
   }
@@ -980,7 +982,7 @@
   .emoji[title=":arrows_clockwise:"], .emoji[title=":wavy_dash:"],
   .emoji[title=":curly_loop:"], .emoji[title=":copyright:"],
   .emoji[title=":currency_exchange:"], .emoji[title=":top:"],
-  .emoji[title=":back:"] {
+  .emoji[title=":back:"], .emoji[title=":zzz:"] {
     -webkit-filter: invert(100%) !important;
             filter: invert(100%) !important;
     background: transparent !important;
@@ -1140,12 +1142,12 @@
   .full-commit.commit, .flash, .bootcamp h1, .bootcamp-body, .owners-notice,
   .full-commit .browse-button, .blob-history, a.branch-name, .branch-name,
   .new-user-avatar-cta, .jstree-wholerow-clicked, .commit-ref, .api .alert,
-  .file-history-tease, .flash, .flash-global {
+  .file-history-tease, .flash, .flash-global, .new-commit-tease {
     background: #182030 !important;
   }
   .timeline-comment.current-user .timeline-comment-header, .new-user-avatar-cta,
   .full-commit .browse-button, .markdown-format .alert p, .blob-history, .flash,
-  .flash-global {
+  .flash-global, .new-commit-tease {
     color: #8195BE !important;
   }
   .timeline-comment.current-user, .github-jobs-promotion p, .octotip,
@@ -1154,7 +1156,7 @@
   .full-commit .browse-button, .commit-ref, .full-commit .btn.btn-outline,
   a.branch-name, .branch-name,
   .timeline-comment.current-user .timeline-comment-header .timeline-comment-label,
-  .file-history-tease, .flash, .flash-global {
+  .file-history-tease, .flash, .flash-global, .new-commit-tease {
     border: 1px solid #246 !important;
   }
   .timeline-comment.current-user .timeline-comment-header, .blob-history {
@@ -1212,10 +1214,9 @@
   .btn, header.nav-bar, .bubble .bubble-title, kbd, a.feed,
   .list-browser-filterbar, .gobutton, .comment-header, .pagehead ul.tabs li a,
   .login_form input[type="submit"], .top-bar, ul#bootcamp li a h4,
-  #gists .context-menu-container, body#com #header,
-  .white-nav .selected span, .filter-tab, #header-wrapper,
-  #header-wrapper .nav, .pagination span, .cheatsheet h2,
-  .section a.section-head, .octotree_view_header, .list-heading,
+  #gists .context-menu-container, body#com #header, .white-nav .selected span,
+  .filter-tab, #header-wrapper, #header-wrapper .nav, .pagination span,
+  .cheatsheet h2, .section a.section-head, .octotree_view_header, .list-heading,
   .dashboard-tabs li a, a.function-button, .add-pill-form,
   .gist .gist-file .gist-meta, .octotree_toggle, ul.comparison-list > li.title,
   button.button, a.button, span.button, button.minibutton, a.minibutton,
@@ -1255,7 +1256,8 @@
   }
   /* === Text Color === */
   /* Bright text */
-  .dropdown-item:hover, .dropdown-item.zeroclipboard-is-hover {
+  .dropdown-item:hover, .dropdown-item.zeroclipboard-is-hover,
+  .gist-snippet .link-overlay .link, .gist-snippet .link-overlay strong {
     color: #fff !important;
   }
   h1, h2, h1 strong, h2 strong, .btn, a.btn, .btn.btn-primary, .button.primary,
@@ -1538,9 +1540,9 @@
   .blob-num.non-expandable:hover, .breadcrumb, #footer .mega-octicon,
   .application-authorizations .oauth-app-list-meta,
   .application-authorizations .oauth-app-owner, .boxed-group-inner .help,
-  .thread-subscription-status .reason,
-  .toc-diff-stats .octicon, .blob-num, .recent-gists .description .blank,
-  .recent-gists .metadata, .member-meta .access-link {
+  .thread-subscription-status .reason, .toc-diff-stats .octicon, .blob-num,
+  .recent-gists .description .blank, .recent-gists .metadata,
+  .member-meta .access-link {
     color: #666 !important;
   }
   .branch-infobar .lightweight-actions > li .octicon, .pagehead-tabs-item .octicon {
@@ -1570,7 +1572,7 @@
   a.select-menu-item, .list-heading a, .close-button, .timeline-comment-action,
   a.timeline-comment-action, a.comment-type-icon,
   .timeline-comment-actions .octicon, .commit-title .commit-link tt,
-  .btn-block-user, .pagehead-tabs-item.selected > .octicon {
+  .btn-block-user, .pagehead-tabs-item.selected > .octicon, .text-muted strong {
     color: inherit !important;
   }
   /* Alerts and activity, remove background gradient */
@@ -1589,7 +1591,7 @@
   /* Red panel */
   #forkqueue .legend .unclean, .unclean td, .chzn-results .no-results,
   .majorproblem .pageheader_wrap, .error_box, .btn-close-issue,
-  button.classy[name="comment_and_close"], .comment-form-error, .closed-issues,
+  button.classy[name="comment_and_close"], .closed-issues,
   .state-indicator.closed, .state-closed,
   .discussion-item-closed .discussion-item-icon {
     background: #c31e16 !important;
@@ -1605,8 +1607,10 @@
     background: #c31e16 !important;
   }
   /* red border */
-  .mergeable-dirty .bubble .mergeable, #message.major {
+  .mergeable-dirty .bubble .mergeable, #message.major, .comment-form-error,
+  .comment-form-stale {
     border-color: #c31e16 !important;
+    background: #200 !important;
   }
   .mergeable-dirty .bubble:after {
     border-right-color: #a31e16 !important;
@@ -1628,7 +1632,8 @@
   .uploaded-files .remove:hover,
   .collaborators .collab-remove .remove-link:hover, .minibutton.danger,
   .closed.mini-icon, .octicon-btn-danger:hover, .text-danger, a.text-danger,
-  .type-icon-state-closed, a.type-icon-state-closed, .reverted.octicon {
+  .type-icon-state-closed, a.type-icon-state-closed, .reverted.octicon,
+  .text-failure strong, .text-error strong, .text-danger strong {
     color: #c31e16 !important;
   }
   /* === Brown panel === */
@@ -1695,7 +1700,7 @@
     border-right-color: #884 !important;
   }
   .text-pending, a.text-pending, .compare-pr-placeholder p,
-  .compare-pr-placeholder .help-link {
+  .compare-pr-placeholder .help-link, .text-pending strong {
     color: #cc5 !important;
   }
   /* === Green panel === */
@@ -1740,7 +1745,7 @@
   ul.summary-stats li .octicon-issue-opened, #toc .octicon-diff-added,
   .boxed-group-success, .setup-info-module .features-list .octicon,
   .setup-form-container .secure, .highlight .gi, .type-icon-state-open,
-  a.type-icon-state-open {
+  a.type-icon-state-open, .text-success strong, .text-open strong {
     color: #6CC644 !important;
   }
   /* interactive button - bright border */
@@ -1984,6 +1989,24 @@
     background: #380000 !important;
     border-color: #600 !important;
   }
+  /* hover highlight in code and diffs */
+  .diff-table tr:hover > pre,
+  .highlight:not(.lines) tr:not(.inline-comments):hover td:not(.line-age):not([style^="background-color: rgb(248, 238, 199)"]) {
+    background: #272727 !important;
+  }
+  .highlight:not(.lines) tr:not(.inline-comments):hover td.blob-num-addition:not(.line-age),
+  .highlight:not(.lines) tr:not(.inline-comments):hover td.blob-code-addition:not(.line-age) {
+    background: #103810 !important;
+  }
+  .highlight:not(.lines) tr:not(.inline-comments):hover td.blob-num-deletion:not(.line-age),
+  .highlight:not(.lines) tr:not(.inline-comments):hover td.blob-code-deletion:not(.line-age) {
+    background: #481010 !important;
+  }
+  .highlight:not(.lines) tr:not(.inline-comments):hover td.selected-line.blob-num:not(.line-age),
+  .highlight:not(.lines) tr:not(.inline-comments):hover td.selected-line.blob-code:not(.line-age),
+  .highlight tr:not(.inline-comments):hover td[style^="background-color: rgb(248, 238, 199)"] {
+    background: #363610 !important;
+  }
   .prose-diff > .markdown-body th.changed, .prose-diff > .markdown-body td.changed {
     background: #282818 !important;
   }
@@ -2115,13 +2138,13 @@
   .zh-pipeline-issue-action, .zh-pipeline-heading-container, .zh-button-grey,
   .zh-schema-title, .zh-milestone-dates,
   .zh-burndown-chart .milestone-start-calendar-container,
-  .zh-board-menu-item .toggle-button.selected {
-    background-color: #222 !important;
+  .zh-toggle-button.selected, .popover li {
+    background: #222 !important;
     border-color: #484848 !important;
   }
   .zh-uploader-drop, .zh-button-grey.selected, .zh-button-grey:hover,
   .is-not-pawed:not(.zh-paw-count-0), .zh-board-menu-item button:hover,
-  .zh-board-menu-item .toggle-button.selected:hover {
+  .zh-toggle-button.selected:hover, .popover li:hover {
     background: #333 !important;
   }
   .zh-chart .yaxis-strips .hstripe:nth-child(2n) {
@@ -2130,7 +2153,8 @@
   /* border */
   .zh-paw-btn-inner, .zh-schema, .zh-schema-pipeline-name, .popover,
   .zh-uploader-drop, .zh-milestone-dates, .zh-burndown-chart-container,
-  .zh-burndown-chart .stats-container {
+  .zh-burndown-chart .stats-container, .popover li,
+  .zh-pipeline-collapsed .zh-pipeline-options {
     border-color: #484848 !important;
   }
   .popover.right .arrow {
@@ -2145,9 +2169,15 @@
   .zh-board-menu-item button.selected .octicon {
     color: #fff !important;
   }
+  .popover li, .zh-pipeline-options li:hover {
+    color: #ccc !important;
+  }
   .zh-schema-pipeline-name, #zh-export-issue-json .octicon-file-directory,
   .zh-board-menu-item .toggle-button .octicon {
     color: #888 !important;
+  }
+  .zh-pipeline-options li {
+    color: #5f5f5f !important;
   }
   /* tooltip */
   .popover {
@@ -2190,7 +2220,7 @@
     -webkit-filter: invert(40%) !important;
             filter: invert(40%) !important;
   }
-  .zh-icon-burndown {
+  .zh-icon-burndown, .zh-icon-column-collapse, .zh-icon-column-expand {
     -webkit-filter: invert(100%) !important;
             filter: invert(100%) !important;
   }
@@ -2236,7 +2266,7 @@
     background: #141414 !important;
     color: #ddd !important;
   }
-  .pl-c {
+  .pl-c, .pl-c span {
     color: #5F5A60 !important;
     font-style: italic !important;
   }
@@ -2508,7 +2538,7 @@
   .pl-sra {
     color: #CDA869 !important;
   }
-  /* string.regexp string.regexp.arbitrary-repitition */
+  /* string.regexp string.regexp.arbitrary-repetition */
   .pl-src {
     color: #CDA869 !important;
   }
