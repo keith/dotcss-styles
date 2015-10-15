@@ -1,4 +1,4 @@
- /*! Github Dark Theme v1.14.20 (10/14/2015) *//*
+ /*! Github Dark Theme v1.14.21 (10/14/2015) *//*
  * https://github.com/StylishThemes/GitHub-Dark
  * http://userstyles.org/styles/37035
  * License: https://creativecommons.org/licenses/by-sa/4.0/
@@ -710,7 +710,7 @@
   .thread-subscription-status, .branch-action-body .merge-message,
   .branch-action-body .merge-branch-form, .pull-info, .branch-link,
   .discussion-item-merged.open .discussion-item-details, .word-upload-callout,
-  .new-commit-tease-contributors {
+  .commit-tease-contributors {
     background: #181818 !important;
     border-color: #343434 !important;
   }
@@ -768,7 +768,7 @@
   #gist-form .file .meta, .file .meta, .file-box .meta, .menu-heading,
   .audit-results-header, .branches .branch-group-heading, .auth-form-header,
   .commit-form, .comment-form-head.tabnav, .dashboard-notice,
-  .migration-jumbotron, .migration-sub-header, .new-commit-tease {
+  .migration-jumbotron, .migration-sub-header, .commit-tease {
     background: #1d1d1d !important;
   }
   /* Navigation focus */
@@ -1304,9 +1304,8 @@
   .file-history-tease .participation p.quickstat strong,
   .branch-action-state-dirty .branch-action-icon:before,
   .branch-action-state-closed-dirty.branch-action-icon:before,
-  .branch-action-state-merged .branch-action-icon:before, a.user-mention,
-  a.team-mention, .full-commit .authorship a,
-  #fork-select .target:hover:not(.disabled),
+  .branch-action-state-merged .branch-action-icon:before,
+  .full-commit .authorship a, #fork-select .target:hover:not(.disabled),
   .full-commit .authorship .author-name, .showcase-featured .featured-grid-link,
   .collection-card-title, .collection-card-image:hover,
   .explore-page .see-more-link, .mute, .pull-request-link:hover,
@@ -1351,7 +1350,8 @@
   .select-menu-item.navigation-focus.select-menu-action,
   .select-menu-item.navigation-focus .description-inline,
   .gist-snippet-meta .description, a.select-menu-item-text,
-  .select-menu-item-text strong, .clone-url-button > .clone-url-link {
+  .select-menu-item-text strong, .clone-url-button > .clone-url-link,
+  a.user-mention, .user-mention, a.team-mention, .team-mention {
     color: #e0e0e0 !important;
   }
   b, strong, .explain strong {
@@ -1413,8 +1413,8 @@
   .completeness-indicator-error, .completeness-indicator-problem,
   .pagehead-tabs-item.selected, a.pagehead-tabs-item.selected,
   .pagehead-tabs-item:hover, a.pagehead-tabs-item:hover, .article-meta,
-  a.article-meta, .timeline-comment-header-text code a, .new-commit-tease-sha,
-  a.new-commit-tease-sha {
+  a.article-meta, .timeline-comment-header-text code a, .commit-tease-sha,
+  a.commit-tease-sha {
     color: #c0c0c0 !important;
   }
   h5, h6, .edit-repository-meta, .field label, .boxed-group-list li, .capped-box,
@@ -1467,7 +1467,7 @@
   .markdown-format code, .markdown-format ol > li::before, a.tabnav-extra,
   .tabnav .tabnav-extras, .label-admin, .program-info-column p,
   .form-checkbox .note, .file-history-tease, .blob-num:hover, .select-menu-modal,
-  .gist-snippet-meta .gist-count-links > li > a, .new-commit-tease .message {
+  .gist-snippet-meta .gist-count-links > li > a, .commit-tease .message {
     color: #a0a0a0 !important;
   }
   /* content text */
@@ -1506,7 +1506,7 @@
   .dropdown-header, .participation a, .completeness-indicator-info,
   .type-icon-state-none, a.type-icon-state-none, .pagehead-tabs-item,
   a.pagehead-tabs-item, .org-settings-team-count, a.muted-link strong,
-  table.files td.icon, .new-commit-tease {
+  table.files td.icon, .commit-tease {
     color: #808080 !important;
   }
   .vcard-detail .octicon, .member-badge .octicon,
@@ -1898,7 +1898,7 @@
     border-top-right-radius: 0 !important;
   }
   /* add border */
-  #network, .issues-list, .pulls-list-group, .new-commit-tease, .branch-infobar,
+  #network, .issues-list, .pulls-list-group, .commit-tease, .branch-infobar,
   .pagehead.repohead h1 .repo-label span,
   .coupons .coupon-form-body .coupon-icon, .markdown-format table, .menu,
   .merge-pr-more-commits {
