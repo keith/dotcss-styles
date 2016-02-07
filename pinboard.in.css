@@ -1,9 +1,24 @@
 body,
 #banner {
+  color: #999;
   background: #212121 !important;
 }
 
-#top_menu a, #footer a {
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+td {
+  color: #999;
+}
+
+#top_menu a,
+#footer a,
+a:visited {
   color: #999;
   text-decoration: underline;
 }
@@ -13,7 +28,7 @@ a.bookmark_title {
 }
 
 a.bookmark_title.unread {
-  color: #b41;
+  color: #9e4a2e;
 }
 
 input[type="button"],
