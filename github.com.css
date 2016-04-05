@@ -1,4 +1,4 @@
-  /*! Github Dark Theme v1.14.63 (3/21/2016) *//*
+  /*! Github Dark Theme v1.14.66 (4/4/2016) *//*
  * https://github.com/StylishThemes/GitHub-Dark
  * http://userstyles.org/styles/37035
  * License: https://creativecommons.org/licenses/by-sa/4.0/
@@ -19,8 +19,8 @@
     font-family: "/*[[font-choice]]*/",Consolas,"Liberation Mono",Menlo,Courier,monospace !important;
   }
   /* Base link/panel colors - text */
-  a:not([href*="/labels/"]), input[type="text"]:focus + .scope-badge, a strong,
-  .profilecols ul.stats li a:hover strong, .plans-row .plan,
+  a:not([href*="/labels/"]), input[type="text"]:focus + .header-search-scope,
+  a strong, .profilecols ul.stats li a:hover strong, .plans-row .plan,
   .filters li.selected, .vcard-stat, .zeroclipboard-button,
   .creator a, button#logout:hover,
   #user-links .sign-out-button:hover, .numbers-summary a:hover,
@@ -89,7 +89,8 @@
   .octotree_github_sidebar a.octotree_toggle:not(.octotree_loading):hover,
   .lock-toggle-link:hover, a.lock-toggle-link:hover,
   .toolbar-item .menu-target:focus, .toolbar-item:focus, .sub-nav li a:hover,
-  .site-header-menu .nav-item:hover {
+  .site-header-menu .nav-item:hover,
+  .scoped-search .form-control.focus .header-search-scope {
     color: /*[[base-color]]*/ #4183C4 !important;
   }
   /* Base color panel */
@@ -99,7 +100,7 @@
   .dashboard-tabs a:hover, .dropdown-menu > li > a:hover,
   .documentation-results a:hover, .hidden-text-expander a:hover,
   .dropdown-item:hover, .dropdown-item.zeroclipboard-is-hover,
-  .select-menu-item.navigation-focus, .subnav-item.selected,
+  .subnav-item.selected,
   .subnav-item.selected:hover, .subnav-item.selected:focus,
   .example-nav li a.selected, .typeahead-result.navigation-focus,
   .typeahead-result:hover, .add-line-comment,
@@ -112,7 +113,10 @@
   .gist-quicksearch-result.navigation-focus, .gist-snippet .link-overlay .link,
   .suggester li.navigation-focus, .suggester .cur,
   .btn.btn-outline:hover, .btn.btn-outline:active, .btn.btn-outline.selected,
-  .btn.btn-outline.zeroclipboard-is-hover, .btn.btn-outline.zeroclipboard-is-active {
+  .btn.btn-outline.zeroclipboard-is-hover, .btn.btn-outline.zeroclipboard-is-active,
+  .select-menu-item:not(.select-menu-item-parent):not(.selected).navigation-focus,
+  .reaction-sort-item:hover, .reaction-sort-item.selected,
+  .select-menu-item.navigation-focus.selected {
     background: /*[[base-color]]*/ #4183C4 !important;
   }
   .context-button:after {
@@ -122,7 +126,7 @@
   .diagram-icon:not(.active), .btn.btn-outline,
   .btn.btn-outline:hover, .btn.btn-outline.zeroclipboard-is-hover,
   :checked + .radio-label, .gist-snippet .file-box:hover .file,
-  .octofication .message {
+  .octofication .message, .reaction-sort-item.selected {
     border-color: /*[[base-color]]*/ #4183C4 !important;
   }
   .header-nav-link:hover .dropdown-caret, .header-nav-link:focus .dropdown-caret,
@@ -170,7 +174,7 @@
   input.focus[type="tel"], input[type="tel"]:focus, input.focus[type="url"],
   input[type="url"]:focus, textarea.focus, textarea:focus, #q:focus ~ button,
   input.color-editor-input:focus, #ghd-settings select:focus,
-  #ghd-settings input:focus, .intgrs-lstng-item:hover {
+  #ghd-settings input:focus, .intgrs-lstng-item:hover, .ajax-pagination-btn:focus {
     border-color: /*[[base-color]]*/ #4183C4 !important;
     box-shadow: inset 0 1px 2px rgba(0,0,0,.075),0 0 2px /*[[base-color]]*/ #4183C4 !important;
     outline-color: /*[[base-color]]*/ #4183C4 !important;
@@ -322,7 +326,7 @@
   .markdown-body strike code, .markdown-body strike tt {
     text-decoration: line-through !important;
   }
-  .dropdown-menu, .word-upload-callout {
+  .dropdown-menu, .word-upload-callout, .exploregrid-item {
     box-shadow: 0 3px 12px rgba(0,0,0,.4) !important;
   }
   /* remove shadow */
@@ -390,7 +394,9 @@
   .session-authentication .auth-form-header,
   .timeline-progressive-disclosure-items, #com #footer,
   .inline-form .btn-plain, .pr-toolbar, .diffbar, .shade-gradient,
-  #categories .list, .gist-banner {
+  #categories .list, .gist-banner, .select-menu-item-parent, .main-content,
+  .showcase-page-header, .showcase-page-pattern:after, .description-inline,
+  .result-group a  {
     background: transparent !important;
   }
   .render-container.is-render-ready.is-render-requested:not(.is-render-failed),
@@ -402,7 +408,8 @@
   .big-notice, .clean td, .legend .clean, .avatar .overlay.size-48,
   .listing.closed, .gist .gist-file .gist-data, .gist-syntax,
   .gist .gist-file .gist-data .line-numbers, .listing .repo,
-  .render-shell .leaflet-marker-pane img {
+  .render-shell .leaflet-marker-pane img, .showcase-page-pattern,
+  .showcase-page-pattern:after {
     background-color: transparent !important;
     background-image: none !important;
   }
@@ -419,7 +426,7 @@
   .dashboard-tabs a, .search-filters {
     border-radius: 0 !important;
   }
-  .discussion-topic-header {
+  .discussion-topic-header, .previewable-comment-form .tabnav {
     border-radius: 3px 3px 0 0 !important;
   }
   /* repo labels, private repo lists */
@@ -568,7 +575,7 @@
   .swipe .swipe-frame .swipe-shell, ul.search-results,
   .orgs-help-shelf-content .orgs-help-divider, .repository-lang-stats-graph,
   .gist-quicksearch-results, .gist-quicksearch-result,
-  .gist-quicksearch-result-group {
+  .gist-quicksearch-result-group, .listgroup, .listgroup-item+.listgroup-item {
     border-color: #484848 !important;
   }
   pre, h1, h2, h3, .header, table, table tr, table td, table th,
@@ -628,7 +635,9 @@
   .merge-branch-manually, .intgr-header, .code-list-item, .sort-bar,
   #com #footer, .repo-file-upload-outline, .comment-reactions.has-reactions,
   .reaction-summary-item, .select-menu-divider, .featurette.border-top,
-  .tile-block, .tile-bordered:not(:last-child) {
+  .tile-block, .tile-bordered:not(:last-child), .showcase-page-header,
+  .showcase-page-repo-list, .header-search-scope, .exploregrid-item,
+  .result-group a {
     border-color: #343434 !important;
   }
   .discussion-item-icon, .date:after, .render-shell img, img.asset,
@@ -691,7 +700,8 @@
     border-bottom-color: #222 !important;
     border-top-width: 1px !important;
   }
-  .word-upload-callout:before, .word-upload-callout:after {
+  .word-upload-callout:before, .word-upload-callout:after,
+  .select-menu-modal-arrow:after {
     border-bottom-color: #343434 !important;
   }
   .repo-filterer .repo-filter:hover {
@@ -743,7 +753,7 @@
   #gollum-editor-help-list li a:hover, .github-access-banner, .protip-callout,
   ul.comparison-list, .wiki-custom-sidebar, .invitation-container,
   .orgs-help-shelf, .orgs-help-item-octicon, .form-control,
-  input[type="text"]:not(.tree-finder-input), input[type="password"],
+  input[type="password"],
   input[type="email"], input[type="number"], input[type="tel"],
   input[type="url"], textarea, .dropdown-menu, .thread-subscription-status,
   .branch-action-body .merge-message, .branch-action-body .merge-branch-form,
@@ -754,14 +764,16 @@
   .intgrs-lstng-item, .intgr-install-callout, .is-failed .repo-file-upload-errors,
   .is-bad-file .repo-file-upload-errors, .is-too-big .repo-file-upload-errors,
   .is-too-many .repo-file-upload-errors, .is-empty .repo-file-upload-errors,
-  .site-header, .site-subheader, .pricing-card {
+  .site-header, .site-subheader, .pricing-card,
+  input[type="text"]:not(.tree-finder-input):not(.js-site-search-focus) {
     background: #181818 !important;
     border-color: #343434 !important;
   }
   #readme .plain, .readme .markdown-body, .readme .plain, .pull-request-composer,
   .drag-and-drop, .octofication .broadcast-icon-mask, .file .image,
   .merge-pr-more-commits, .release-timeline-tags .expander-dots,
-  .coupons .coupon-form-body, .manage-repo-access-group, .feature-callout {
+  .coupons .coupon-form-body, .manage-repo-access-group, .feature-callout,
+  .saved-reply-form {
     background: #181818 !important;
     border-color: #484848 !important;
   }
@@ -794,7 +806,7 @@
   .gist-quicksearch-result-header, .label-generic, .migrate-org-roles,
   .commit-tease .commit-meta, .manage-repo-access-icon,
   .table-list:not(.team-member-list), .repo-file-upload-progress,
-  .gcr-ext-editor-dialog, .shade-gray {
+  .gcr-ext-editor-dialog, .shade-gray, .exploregrid-item {
     background: #181818 !important;
   }
   .sidebar-module {
@@ -836,7 +848,8 @@
   .owner-select-target, .divider .blob-code div.highlight,
   .line[style^="background-color: rgb(255, 255, 204)"],
   .oauth-org-access-details .boxed-group-list > li.on:hover, pre div:hover,
-  table.files tr.navigation-focus td, .summary-stats li a:hover {
+  table.files tr.navigation-focus td, .summary-stats li a:hover,
+  .label-select-menu .select-menu-item.navigation-focus:not(.selected) {
     background: #242424 !important;
   }
   #main, .capped-box, .unread_count, #browser table th,
@@ -847,13 +860,13 @@
   .search-results-listing em, .discussion-bubble-inner, #wiki-history table td,
   .menu a.selected, .gist .gist-file .gist-data, #message.major, .logo-box,
   .markdown-example .rendered, .team-grid .team-members,
-  .diagram-icon:not(.active), table.capped-list th, .scope-badge, .filter-bar,
+  .diagram-icon:not(.active), table.capped-list th, .filter-bar,
   .audit-search-clear, .country-info, .tabnav-tab.selected,
   .file-diff-split .empty-cell, .composer-infobar, .completeness-indicator-blank,
   .leaflet-control-zoom, .pagehead-tabs-item.selected, .reponav-item.selected,
   .ajax-pagination-form .ajax-pagination-btn:hover,
   .ajax-pagination-form .ajax-pagination-btn:focus,
-  .manage-repo-access-not-active {
+  .manage-repo-access-not-active, .header-search-scope {
     background: #222 !important;
   }
   hr, .rule, #browser, .repos, .options-group, .pagehead ul.tabs li a.selected,
@@ -913,7 +926,7 @@
   /* semi-transparent */
   .pagehead, .context-loader.large-format-loader, #graphs .loader,
   .org-header, .render-shell .slider, .illflow-item:not(.selected):hover,
-  .exploregrid-item, .leaflet-control-attribution {
+  .leaflet-control-attribution {
     background: rgba(24,24,24,.4) !important;
   }
   .starred-repo.navigation-focus, .marketing-section-stripe,
@@ -950,7 +963,7 @@
   .commit-preview p.error, .pagehead ul.tabs li.contextswitch, #browser tr th,
   .status-box h4, .line_numbers, #files span.icon, #issues_list .actions,
   #repos .public, .inset-callout, #repo-message, .repo-private-label,
-  .label-admin, a.team-member-ellipsis, .code-list em, .user-list em {
+  .label-admin, a.team-member-ellipsis, .code-list em, .user-list em  {
     background: #333 !important;
   }
   .comment-form, #issues .labels, .listings .odd, .feed, #files .description,
@@ -1413,7 +1426,7 @@
   .btn.btn-outline.zeroclipboard-is-hover, .btn.btn-outline.zeroclipboard-is-active {
     color: #fff !important;
   }
-  h1, h2, h1 strong, h2 strong, .btn, a.btn, .btn.btn-primary, .button.primary,
+  .btn, a.btn, .btn.btn-primary, .button.primary,
   .minibutton.primary, .btn-danger:hover, ul.repo-stats li a:hover,
   .text-emphasized, .minibutton.danger:hover, #gist-form label,
   .subnav li a:hover, .filters li.selected a, .filters li a:hover, .code-list em,
@@ -1498,13 +1511,15 @@
   .markdown-format h2 .octicon-link, .markdown-format h3 .octicon-link,
   .markdown-format h4 .octicon-link, .markdown-format h5 .octicon-link,
   .markdown-format h6 .octicon-link, .tabnav-tab.selected,
-  .leaflet-control-attribution, .leaflet-control-attribution a {
+  .leaflet-control-attribution, .leaflet-control-attribution a,
+  .integrations-breadcrumb-link, a.integrations-breadcrumb-link {
     color: #e0e0e0 !important;
   }
   b, strong, .explain strong {
     color: #e6e6e6 !important;
   }
-  pre, body, h3, h4, h3 strong, h4 strong, a.social-count, span.social-count,
+  pre, body, h1, h2, h3, h4, h5, h1 strong, h2 strong, h3 strong, h4 strong,
+  h5 strong , a.social-count, span.social-count,
   #languages a.bar, .lineoption p, a.blog-title, table.notifications th,
   .usagestats dl dt.numbers, .commit-preview p.name .date, .download-list h4,
   .fieldgroup p.explain.planusage, ol.repository-lang-stats-numbers li .lang,
@@ -1566,10 +1581,11 @@
   .session-authentication .header-logo, .repo-file-upload-progress,
   a .mega-octicon, .anchor, a.anchor,
   .gcr-ext-editor-close .delete-button:hover svg,
-  .repo-filterer .repo-filter.filter-selected, .select-menu-divider {
+  .repo-filterer .repo-filter.filter-selected, .select-menu-divider,
+  .label-select-menu .select-menu-item.selected  {
     color: #c0c0c0 !important;
   }
-  h5, h6, .edit-repository-meta, .field label, .boxed-group-list li, .capped-box,
+  .edit-repository-meta, .field label, .boxed-group-list li, .capped-box,
   .marketing-nav a, .repository-meta,
   .gist-item .description, p.explain, .news .alert .simple .title,
   #network .graph-date, .tabnav-widget.text, .feature .intro, span.diffstat,
@@ -1628,8 +1644,7 @@
   .site-header-menu .nav-item {
     color: #a0a0a0 !important;
   }
-  /* content text */
-  #contributions-calendar .contrib-details div, .mini-icon-remove-close:hover,
+  h6, #contributions-calendar .contrib-details div, .mini-icon-remove-close:hover,
   .tabnav-tabs a, .time, .gist-item .metadata .datetime, .list-group-item-meta,
   a.keyboard-shortcuts, button.keyboard-shortcuts, .simple-conversation-list,
   .simple-conversation-list > li .title .num, .drag-and-drop,
@@ -1651,7 +1666,7 @@
   .issues-listing .table-list-issues .issue-comments-link,
   .issues-listing .table-list-issues .issue-meta-section a, a.issues-reset-query,
   .labels-list-action, table.tag-list p a, table.tag-list td.date a, .muted-link,
-  a.muted-link, .render-view-modes li, .scope-badge, .site-footer,
+  a.muted-link, .render-view-modes li, .site-footer,
   .site-footer .octicon-mark-github:hover, .repo-list-stats .repo-list-stat-item,
   .range-editor span.flag .octicon, .commit-info .commit-meta a,
   .notifications .issue-notification.read .type-icon, .notifications .read a,
@@ -1670,7 +1685,7 @@
   .markdown-body blockquote strong, .news .body blockquote strong,
   .toolbar-item .menu-target, .member-meta .member-meta-link,
   .lock-toggle-link, a.lock-toggle-link, .hidden-text-expander a,
-  .ellipsis-expander, .text-muted {
+  .ellipsis-expander, .text-muted, .header-search-scope {
     color: #808080 !important;
   }
   .vcard-detail .octicon, .member-badge .octicon,
@@ -1755,7 +1770,7 @@
   .reponav-item.selected > .octicon, .select-menu-action > .octicon,
   .text-muted strong:not(.text-emphasized), .select-menu-item,
   a.select-menu-item, .discussion-sidebar-toggle:hover .octicon,
-  .feature-callout .feature-dismiss-link {
+  .feature-callout .feature-dismiss-link, .pagehead-heading, a.pagehead-heading {
     color: inherit !important;
   }
   /* Alerts and activity, remove background gradient */
@@ -1847,12 +1862,12 @@
   .state-indicator.renamed, .discussion-topic .branch-status.status-pending,
   .compare-pr-placeholder, .compare-cutoff, .diff-cutoff, .flash.flash-warn,
   .flash-global.flash-warn, .markdown-body li.added.moved, .repo-private-label,
-  .gist-secret-label, .label-private {
+  .gist-secret-label, .label-private, .stale-files-tab {
     background: #383412 !important;
     border-color: #662 !important;
     color: #cb4 !important;
   }
-  .page-gist-edit .octicon-gist-secret {
+  .page-gist-edit .octicon-gist-secret, .stale-files-tab a {
     color: #cb4 !important;
   }
   /* code and diff line selection */
@@ -2075,7 +2090,7 @@
     background: #181818 !important;
   }
   .ajax-pagination-form.loading .ajax-pagination-btn:after {
-    content: '' !important;
+    content: "" !important;
     position: absolute !important;
     width: 16px !important;
     height: 16px !important;
@@ -2140,6 +2155,10 @@
   .dropdown-menu-ne:after {
     border-bottom: 0 !important;
     border-top-color: #343434 !important;
+  }
+  .dropdown-menu-e:after {
+    border-right-color: #343434 !important;
+    border-bottom-color: transparent !important;
   }
   /* inline code - add border */
   .markdown-format code, .markdown-body code, .markdown-body tt,
@@ -2353,7 +2372,7 @@
   .lovely-forks-addon {
     color: #808080 !important;
   }
-  /* ZenHub styling */
+  /*** ZenHub styling ***/
   .zh-button, .is-not-pawed:hover .zh-paw-btn-inner, .popover li:hover,
   .zh-select-menu-item.navigation-focus {
     background: /*[[base-color]]*/ #4183C4 !important;
@@ -2365,7 +2384,7 @@
     color: /*[[base-color]]*/ #4183C4 !important;
   }
   /* background */
-  li.new-pipeline-column {
+  li.new-pipeline-column, .zh-epic-creator-top, .zh-epic-creator-nav {
     background: transparent !important;
   }
   .zh-overlay {
@@ -2385,7 +2404,9 @@
   }
   li.zh-pipeline, .zh-schema-pipelines, .zh-pipeline-issue-heading,
   .zh-connect-repository-container, .burndown-chart, .zh-todolist-box,
-  .zh-issueviewer-title {
+  .zh-issueviewer-title, .zh-timeline-comment, .zh-epic-issue-list-container,
+  .zh-epic-issue-list-container li, .zh-epic-creator-issue-list,
+  .zh-epic-creator-issue-list li, .zh-epic-creator-tab {
     background: #181818 !important;
     border-color: #484848 !important;
   }
@@ -2395,7 +2416,10 @@
   .zh-toggle-button.selected, .popover li, .zh-todo-item,
   div.zh-issuecard-container, .zh-onboarding-modal,
   .zh-onboarding-tooltip-target, .zh-onboarding-tooltip, .zh-login-status,
-  .zh-board-loading-message, .zh-select-menu-header {
+  .zh-board-loading-message, .zh-select-menu-header,
+  .zh-timeline-comment-header, .zh-epic-issue-list-footer,
+  .zh-epic-issue-list-container li:hover, .zh-epic-creator-issue-list li:hover,
+  .zh-epic-creator-tab.selected {
     background: #222 !important;
     border-color: #484848 !important;
   }
@@ -2403,7 +2427,8 @@
   .is-not-pawed:not(.zh-paw-count-0), .zh-board-menu-item button:hover,
   .zh-toggle-button.selected:hover,
   .zh-todolist-today-separator, .zh-todolist-completed-separator,
-  .zh-todolist-menu.ui-sortable-helper {
+  .zh-todolist-menu.ui-sortable-helper, .zh-epic-issue-progress-bar,
+  .zh-epic-creator-progress-bar, .zh-pipeline-badge-light, .zh-pipeline-badge {
     background: #333 !important;
   }
   .zh-chart .yaxis-strips .hstripe:nth-child(2n) {
@@ -2417,7 +2442,8 @@
   .zh-todolist-menu.ui-sortable-helper, .zh-new-pipeline-header,
   .zh-issuecard-main, .zh-onboarding-tooltip-title, .zh-onboarding-modal-title,
   .zh-multi-repo-show-one-btn:disabled,
-  .zh-multi-repo-show-one-btn:disabled:hover, .zh-select-menu-item {
+  .zh-multi-repo-show-one-btn:disabled:hover, .zh-select-menu-item,
+  .zh-epic-creator-picker-container, .zh-epic-creator-nav, .zh-board-menu {
     border-color: #343434 !important;
   }
   .file-commit-form .commit-form:before, .file-commit-form .commit-form:after,
@@ -2431,10 +2457,11 @@
   .zh-uploader-container *, .zh-overlay-body, .zh-pipeline-issue-action,
   .zh-board-menu-item button.selected .octicon, .zh-todolist-create:hover,
   .zh-onboarding-modal *, .zh-onboarding-tooltip-target,
-  .zh-onboarding-tooltip *, .zh-select-menu-title {
+  .zh-onboarding-tooltip *, .zh-select-menu-title,
+  .zh-epic-creator-tab.selected, .zh-delete-epic-button:hover {
     color: #fff !important;
   }
-  .popover li {
+  .popover li, .zh-epic-creator-tab {
     color: #ccc !important;
   }
   .zh-schema-pipeline-name, #zh-export-issue-json .octicon-file-directory,
@@ -2451,6 +2478,22 @@
     -webkit-filter: brightness(4) !important;
             filter: brightness(4) !important;
   }
+  /* ZenHub buttons */
+  .zh-btn, .zh-delete-epic-button {
+    background: linear-gradient(#282828,#181818) !important;
+    border-color: #383838 !important;
+  }
+  .zh-delete-epic-button {
+    color: #c31e16 !important;
+  }
+  .zh-btn:hover {
+    background: linear-gradient(#444,#333) !important;
+    border-color: #484848 !important;
+  }
+  .zh-delete-epic-button:hover {
+    background: #911 !important;
+    border-color: #b00 !important;
+  }
   /* tooltip */
   .popover {
     background: #222 !important;
@@ -2461,10 +2504,13 @@
   }
   /* button tweaks */
   .zh-repo-switcher .select-menu-button {
-    padding-bottom: 4px !important;
+    padding: 5px 4px 0 4px !important;
   }
   .zh-repo-switcher .select-menu-button:after {
-    margin-right: 4px !important;
+    vertical-align: 0 !important;
+  }
+  .zh-octicon-list-unordered {
+    height: 14px !important;
   }
   .zh-board-menu-itemgroup .minibutton {
     border: #343434 1px solid !important;
@@ -2488,7 +2534,7 @@
     color: #ddd !important;
   }
   /* invert image */
-  .zh-upload-image, .zh-octicon-x {
+  .zh-octicon-x {
     -webkit-filter: invert(40%) !important;
             filter: invert(40%) !important;
   }
@@ -2498,7 +2544,7 @@
   .zh-octicon-issue-closed, .zh-octicon-git-pull-request,
   .zh-octicon-list-unordered, .zh-octicon-check, .zh-octicon-inbox,
   .zh-octicon-plus, .zh-octicon-chevron-down, .zh-octicon-pencil,
-  .zh-octicon-issue-opened, .zh-board-menu-itemgroup svg {
+  .zh-octicon-issue-opened, .zh-board-menu-itemgroup svg, .zh-icon-storypoint {
     -webkit-filter: invert(100%) !important;
             filter: invert(100%) !important;
   }
@@ -2506,6 +2552,60 @@
    see https://github.com/buunguyen/octotree/issues/242 */
   html.octotree:not(.octotree-show) .zh-board-expanded .zh-board-menu .tabnav-left {
     margin-left: 20px;
+  }
+  /* Awesome autocomplete styling */
+  .awesome-autocomplete .tt-dropdown-menu {
+    border-color: #343434 !important;
+    background-color: #181818 !important;
+  }
+  .awesome-autocomplete .aa-query strong,
+  .awesome-autocomplete .aa-query-default em,
+  .awesome-autocomplete .tt-suggestion .octicon {
+    color: /*[[base-color]]*/ #4183c4 !important;
+  }
+  .awesome-autocomplete .tt-suggestion .octicon-star {
+    fill: #c0c0c0 !important
+  }
+  .awesome-autocomplete .aa-category {
+    background-color: #1d1d1d !important;
+    border-top: 1px solid #343434 !important;
+    border-bottom: 1px solid #343434 !important;
+    color: #a0a0Aa !important;
+  }
+  .awesome-autocomplete .tt-suggestion {
+    border-color: #343434 !important;
+  }
+  .awesome-autocomplete .tt-suggestion:hover,
+  .awesome-autocomplete .tt-suggestion.tt-cursor {
+    background: #333 !important;
+  }
+  .awesome-autocomplete .tt-suggestion:hover .aa-name {
+    text-decoration: none !important;
+  }
+  .awesome-autocomplete .tt-suggestion em {
+    background-color: /*[[base-color]]*/ #4183c4 !important;
+    color: #fff !important;
+  }
+  .awesome-autocomplete .aa-thumbnail {
+    background-color: #181818 !important;
+  }
+  .awesome-autocomplete .aa-query,
+  .awesome-autocomplete .aa-branding,
+  .awesome-autocomplete .aa-infos,
+  .awesome-autocomplete .aa-login,
+  .awesome-autocomplete .aa-company,
+  .awesome-autocomplete .aa-company i,
+  .awesome-autocomplete .aa-description,
+  .awesome-autocomplete .aa-issue-body {
+    color: #c0c0c0 !important;
+  }
+  .awesome-autocomplete .aa-thumbnail,
+  .awesome-autocomplete .aa-thumbnail {
+    background-color: #181818 !important;
+  }
+  .awesome-autocomplete .icon-delete {
+    -webkit-filter: invert(100%) !important;
+            filter: invert(100%) !important;
   }
   /*[[code-wrap]]*/
   /* OS X font rendering tweak, only active on sub-retina
