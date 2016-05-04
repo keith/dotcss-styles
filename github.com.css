@@ -1,4 +1,4 @@
-  /*! Github Dark Theme v1.14.69 (4/24/2016) *//*
+  /*! Github Dark Theme v1.14.70 (4/29/2016) *//*
  * https://github.com/StylishThemes/GitHub-Dark
  * http://userstyles.org/styles/37035
  * License: https://creativecommons.org/licenses/by-sa/4.0/
@@ -90,7 +90,8 @@
   .lock-toggle-link:hover, a.lock-toggle-link:hover,
   .toolbar-item .menu-target:focus, .toolbar-item:focus, .sub-nav li a:hover,
   .site-header-menu .nav-item:hover,
-  .scoped-search .form-control.focus .header-search-scope {
+  .scoped-search .form-control.focus .header-search-scope,
+  .markdown-body blockquote a code {
     color: /*[[base-color]]*/ #4183C4 !important;
   }
   /* Base color panel */
@@ -239,6 +240,10 @@
   .pr-toolbar.is-stuck {
     position: static !important;
     margin-top: -20px !important;
+  }
+  /* .. and fix rare layout issue related to above hack */
+  .diffbar.details-collapse {
+    width: 980px !important;
   }
   /* HACK: Tweak issue reaction */
   .reaction-summary-item {
@@ -488,6 +493,10 @@
     position: relative !important;
     top: -1px !important;
   }
+  .markdown-body g-emoji .emoji {
+    position: relative !important;
+    top: -4px !important;
+  }
   /* GitHub Bug: Fix image swipe handle misalignment */
   .swipe .swipe-frame .swipe-bar .top-handle,
   .swipe .swipe-frame .swipe-bar .bottom-handle {
@@ -639,18 +648,19 @@
   .reaction-summary-item, .select-menu-divider, .featurette.border-top,
   .tile-block, .tile-bordered:not(:last-child), .showcase-page-header,
   .showcase-page-repo-list, .header-search-scope, .exploregrid-item,
-  .result-group a, .signed-commit-badge, .signed-commit-header {
+  .result-group a, .signed-commit-badge, .signed-commit-header,
+  .user-key-email, .border-top {
     border-color: #343434 !important;
   }
   .discussion-item-icon, .date:after, .render-shell img, img.asset,
-  ul.color-label-list .color {
+  ul.color-label-list .color, .facebox-header {
     border-color: #222 !important;
   }
   .filter-tab.selected {
     border: #444 1px solid !important;
     border-bottom: #333 1px solid !important;
   }
-  .summary-stats, .follow-list .follow-list-item, .facebox-header {
+  .summary-stats, .follow-list .follow-list-item {
     border-bottom: #333 1px solid !important;
   }
   .more-repos, .simple-conversation-list > li, .site-footer,
@@ -767,7 +777,8 @@
   .is-bad-file .repo-file-upload-errors, .is-too-big .repo-file-upload-errors,
   .is-too-many .repo-file-upload-errors, .is-empty .repo-file-upload-errors,
   .site-header, .site-subheader, .pricing-card,
-  input[type="text"]:not(.tree-finder-input):not(.js-site-search-focus) {
+  input[type="text"]:not(.tree-finder-input):not(.js-site-search-focus),
+  .bg-gray-light {
     background: #181818 !important;
     border-color: #343434 !important;
   }
@@ -809,7 +820,7 @@
   .commit-tease .commit-meta, .manage-repo-access-icon,
   .table-list:not(.team-member-list), .repo-file-upload-progress,
   .gcr-ext-editor-dialog, .shade-gray, .exploregrid-item,
-  .listgroup-item, .signed-commit-badge-small {
+  .listgroup-item, .signed-commit-badge-small, .facebox-popup {
     background: #181818 !important;
   }
   .sidebar-module {
@@ -860,7 +871,7 @@
   #main, .capped-box, .unread_count, #browser table th,
   .markdown-format table th, .session-device, .profilecols ul.stats li strong,
   table.upgrades tr.current td, .definitions, .discussion-topic-header,
-  .facebox-popup, .timeline-commits-minimal .commit-icon .octicon,
+  .timeline-commits-minimal .commit-icon .octicon,
   .timeline-commits .commit-icon .octicon, .upload-progress,
   .search-results-listing em, .discussion-bubble-inner, #wiki-history table td,
   .menu a.selected, .gist .gist-file .gist-data, #message.major, .logo-box,
@@ -871,7 +882,8 @@
   .leaflet-control-zoom, .pagehead-tabs-item.selected, .reponav-item.selected,
   .ajax-pagination-form .ajax-pagination-btn:hover,
   .ajax-pagination-form .ajax-pagination-btn:focus,
-  .manage-repo-access-not-active, .header-search-scope {
+  .manage-repo-access-not-active, .header-search-scope,
+  .reverse-progress-bar {
     background: #222 !important;
   }
   hr, .rule, #browser, .repos, .options-group, .pagehead ul.tabs li a.selected,
@@ -1523,7 +1535,7 @@
     color: #e6e6e6 !important;
   }
   pre, body, h1, h2, h3, h4, h5, h1 strong, h2 strong, h3 strong, h4 strong,
-  h5 strong , a.social-count, span.social-count,
+  h5 strong, button, a.social-count, span.social-count,
   #languages a.bar, .lineoption p, a.blog-title, table.notifications th,
   .usagestats dl dt.numbers, .commit-preview p.name .date, .download-list h4,
   .fieldgroup p.explain.planusage, ol.repository-lang-stats-numbers li .lang,
@@ -1588,7 +1600,8 @@
   .repo-filterer .repo-filter.filter-selected, .select-menu-divider,
   .label-select-menu .select-menu-item.selected,
   .dropdown-signed-commit .dropdown-menu, .signed-commit-signer-name .signer,
-  .signed-commit-signer-name a.signer {
+  .signed-commit-signer-name a.signer, .text-gray-dark, a.text-gray-dark,
+  .text-gray strong {
     color: #c0c0c0 !important;
   }
   .edit-repository-meta, .field label, .boxed-group-list li, .capped-box,
@@ -1944,7 +1957,7 @@
   .signed-commit-badge.verified:hover {
     border-color: #6cc644 !important;
   }
-  .signed-commit-verified-label {
+  .signed-commit-verified-label, .signed-commit-badge.verified {
     color: #55a532 !important;
   }
   /* Green text */
@@ -2150,8 +2163,7 @@
   /* add border */
   #network, .issues-list, .pulls-list-group, .commit-tease, .branch-infobar,
   .pagehead.repohead h1 .repo-label span,
-  .coupons .coupon-form-body .coupon-icon, .markdown-format table, .menu,
-  .merge-pr-more-commits {
+  .coupons .coupon-form-body .coupon-icon, .menu,  .merge-pr-more-commits {
     border: 1px solid #484848 !important;
   }
   #graph-shots li > p, .select-menu-item, .logo-box, .branch-infobar {
@@ -2451,6 +2463,9 @@
   }
   .zh-chart .yaxis-strips .hstripe:nth-child(2n) {
     fill: #222 !important;
+  }
+  .zh-board-readonly-banner {
+    background: #182030 !important;
   }
   /* border */
   .zh-paw-btn-inner, .zh-schema, .zh-schema-pipeline-name, .popover,
