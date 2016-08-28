@@ -16,6 +16,12 @@ span.comment font,
 span.comment p,
 span.comment span,
 span.comment font a:link,
+span.c00,
+span.c00 font,
+span.c00 p,
+span.c00 a,
+span.c00 span,
+span.c00 font a:link,
 u a:link,
 span.yclinks a:link,
 body:not([id]),
@@ -24,7 +30,7 @@ input,
 textarea,
 p > a,
 a > u {
-    color: #ccc !important;
+    color: #bbb !important;
 }
 
 .admin td {
@@ -37,21 +43,21 @@ input, textarea {
 }
 
 /* Comment folding */
-.comhead a.collapse{
+.comhead a.collapse {
     cursor: pointer;
 }
 
-.comhead a.collapse:hover{
+.comhead a.collapse:hover {
     text-decoration: none;
 }
 
-.athing.hidden, td.default.hidden>span.comment, td.default.hidden>div.reply{
+.athing.hidden, td.default.hidden>span.comment, td.default.hidden>div.reply {
     display: none;
 }
 
 /*
     Headers will jump around when collapsed if this is not used
 */
-td.default.hidden{
+td.default.hidden {
     padding-bottom: 14px;
 }
