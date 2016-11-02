@@ -1,4 +1,4 @@
-  /*! Github Dark Theme v1.16.4 (10/1/2016) *//*
+  /*! Github Dark Theme v1.16.6 (10/23/2016) *//*
  * https://github.com/StylishThemes/GitHub-Dark
  * http://userstyles.org/styles/37035
  * License: https://creativecommons.org/licenses/by-sa/4.0/
@@ -405,7 +405,7 @@
   .diff-expander .octicon-unfold, .minibutton i, .comment-header-author, .header,
   .gist .gist-file .gist-meta, .logo-placeholder, .branch-group-heading,
   .render-bar, .auth-form-header .octicon, .render-info .symbol, .article-meta,
-  .select-menu-title {
+  .select-menu-title, .text-shadow-light, .text-shadow-dark {
     text-shadow: none !important;
   }
   /* transparent background only */
@@ -455,7 +455,7 @@
   }
   .render-container.is-render-ready.is-render-requested:not(.is-render-failed),
   .user-list li em, .toolbar-commenting .dropdown-item,
-  .toolbar-commenting .dropdown-item:hover {
+  .toolbar-commenting .dropdown-item:hover, .CodeMirror-lines {
     background: none !important;
   }
   /* remove background gradient */
@@ -630,7 +630,7 @@
   .file, .full-commit .sha-block > a, .theme-selector-thumbnail,
   .segmented-nav li, .overall-summary, .boxed-group-inner, .search-form button,
   .branches .branch-group-heading, .boxed-group > h3, .boxed-group .heading,
-  .box-header, .issues-list-actions, p code, code, .wiki-wrapper .wiki-empty-box,
+  .issues-list-actions, p code, code, .wiki-wrapper .wiki-empty-box,
   #adv_code_search .search-page-label, pre.headers, .inline-comment-form,
   .history-link, .oauth-permissions-details,
   .setup-info-module .features-list .list-divider,
@@ -645,7 +645,7 @@
   }
   pre, h1, h2, h3, .header, table, table tr, table td, table th, blockquote,
   .pulse-graph, .btn:not(img), .minibutton, .social-count,
-  .discusion-topic-infobar, .box-header, .box-body, .timeline-comment-label,
+  .discusion-topic-infobar, .box-body, .timeline-comment-label,
   .logo-box, .suggester li, .developer-program-badge, .vcard-details,
   .vcard-stats, .auth-form-header, .nav-bar-tabs .section-title,
   .pagination a:last-child, .pagination span:first-child, .boxed-group-list > li,
@@ -717,7 +717,7 @@
   .discussion-item + .discussion-item,
   .discussion-item-review + .discussion-item, .libraries-jumbotron,
   .last-review-thread, .menu-item, .review-comment.is-comment-editing, .Box,
-  .Box-footer, .team-list-footer {
+  .team-list-footer, .Box-header {
     border-color: #343434 !important;
   }
   .discussion-item-icon, .date:after, .render-shell img, img.asset,
@@ -867,7 +867,7 @@
   .explore-signup-entice, .price-box, .cvv-hint-tooltip, .plan-choice,
   .billing-per-seat-callout:after, .date-selector td, .merge-status-item,
   .user-profile-sticky-bar:after, .review-thread, .card, .tutorial,
-  .overview .card > div[style*="background"] {
+  .overview .card > div[style*="background"], .Box, .Box-footer {
     background: #181818 !important;
     border-color: #343434 !important;
   }
@@ -900,8 +900,7 @@
   table.capped-list tr:nth-child(2n), .team-org-group,
   #gollum-editor-help-wrapper, .integrations-quality,
   .showcase-featured .mo-info .featured-grid-outer, .render-shell, .list,
-  .latest-commit .commit-author, .bubble, .tabs > a.selected, .pagination .gap,
-  .pagination .disabled, .pagination .gap:hover, .pagination .disabled:hover,
+  .latest-commit .commit-author, .bubble, .tabs > a.selected,
   .comment-form-head .tabnav-tab.selected,
   .oauth-org-access-details .boxed-group-list > li.on, #fullscreen_overlay,
   .timeline-new-comment .discussion-topic-header, .branch-action-body,
@@ -945,7 +944,8 @@
   .reorderable-task-lists .markdown-body .task-list-item.hovered,
   .next-charge-box, .credit-card, .branch-action-body .merge-message,
   .review-thread-reply, .bg-gray, a.card.bg-gray-light:hover,
-  .add-member-team-list .team-row-header {
+  .add-member-team-list .team-row-header, .Box-header, .pagination .gap,
+  .pagination .disabled, .pagination .gap:hover, .pagination .disabled:hover {
     background: #202020 !important;
   }
   /* Navigation focus */
@@ -1261,9 +1261,14 @@
   /* invert #fff to #181818 */
   /* https://github.com/sujitpal/statlearning-notebooks/blob/master/src/chapter2.ipynb */
   .output_area img, table.pricing-table, div[id^="event-first"] img,
-  div[id^="event-joined-github"] img, .project-preview-img img {
+  div[id^="event-joined-github"] img, div[id^="event-created"] img,
+  .project-preview-img img {
     -webkit-filter: invert(90.5%) hue-rotate(180deg) saturate(200%) !important;
             filter: invert(90.5%) hue-rotate(180deg) saturate(200%) !important;
+  }
+  /* workaround filter creating a stacking context */
+  .event-first-issue, .event-first-pull-request {
+    opacity: .999 !important;
   }
   /* brighten language colors */
   .language-color {
@@ -1518,7 +1523,7 @@
     background: linear-gradient(#202020, #181818) !important;
     border-color: #383838 !important;
   }
-  .search-form button, .box-header, .issues-list-actions, a.gollum-minibutton,
+  .search-form button, .issues-list-actions, a.gollum-minibutton,
   a.gollum-minibutton:visited {
     background: linear-gradient(#202020, #181818) !important;
   }
