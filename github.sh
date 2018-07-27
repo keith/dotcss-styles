@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Creates a github.com.css file from github-dark.css, github-wide.css, and gist-wide.css
+
 safe_sed() {
   if sed --version > /dev/null 2>&1; then
     sed -i"" "$@"
@@ -22,3 +24,12 @@ safe_sed -E "s/\/\*\[\[bg-choice\]\].*$/none;/" "$file"
 # Remove the moz annotations
 safe_sed "/moz-document/d" "$file"
 safe_sed "$ d" "$file"
+
+# Concatenate additional styles
+additional_styles=(github-wide.css gist-wide.css)
+for style in ${additional_styles[@]}
+do
+  echo "\n/* $style starts here */\n" >> $file
+  cat "$style" >> "$file"
+  echo "\n/* $style ends here */\n" >> $file
+done
